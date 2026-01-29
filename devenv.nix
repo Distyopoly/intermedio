@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, _lib, _config, _inputs, ... }:
 
 {
   languages = {
