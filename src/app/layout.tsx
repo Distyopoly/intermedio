@@ -18,11 +18,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <Providers>
-          <Navbar h="8vh"/>
-          <Box h="calc(100vh - 16vh)">
-            <main>{children}</main> 
+          <Navbar h="8vh" />
+          <Box h="calc(100vh - 16vh)" as="main">
+            {children}
           </Box>
-          <Footer display={{ base: "none", md: "flex" }} h="8vh"/>
+          <Footer display={{ base: "none", md: "flex" }} h="8vh" />
         </Providers>
       </body>
     </html>

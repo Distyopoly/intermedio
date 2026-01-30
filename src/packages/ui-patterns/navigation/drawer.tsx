@@ -7,34 +7,37 @@ import { ColorModeButton } from "@/packages/ui-components/chakra/color-mode";
 import { ComponentProps } from "react";
 
 
-type Props = ComponentProps<typeof DrawerTrigger>
+type Props = ComponentProps<typeof DrawerTrigger> & {
+    howto?: React.ReactNode;
+};
 
-export function NavbarDrawer({ ...props }: Props) {
-    return (    
+export function NavbarDrawer({ howto, ...props }: Props) {
+    return (
         <DrawerRoot placement="start">
             <DrawerTrigger {...props}>
-                <TfiMenu />
+                <TfiMenu size={24} />
             </DrawerTrigger>
             <Portal>
                 <DrawerBackdrop />
                 <DrawerPositioner>
 
-                <DrawerContent>
-                    <DrawerCloseTrigger>
-                        <CloseButton />
-                    </DrawerCloseTrigger>
-                    <DrawerHeader>
-                        <DrawerTitle>Distyopoly</DrawerTitle>
-                    </DrawerHeader>
-                    <DrawerBody>
-                        <NavItems direction="column"/>
-                    </DrawerBody>
-                    <DrawerFooter justifyContent="center">
-                        <ColorModeButton />
-                    </DrawerFooter>
-                </DrawerContent>
+                    <DrawerContent>
+                        <DrawerCloseTrigger>
+                            <CloseButton />
+                        </DrawerCloseTrigger>
+                        <DrawerHeader>
+                            <DrawerTitle>Distyopoly</DrawerTitle>
+                        </DrawerHeader>
+                        <DrawerBody>
+                            <NavItems direction="column" />
+                        </DrawerBody>
+                        <DrawerFooter justifyContent="center">
+                            <ColorModeButton />
+                            {howto}
+                        </DrawerFooter>
+                    </DrawerContent>
                 </DrawerPositioner>
             </Portal>
-        </DrawerRoot> 
+        </DrawerRoot>
     );
 }

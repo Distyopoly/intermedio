@@ -5,15 +5,17 @@ import { NavbarDrawer } from "./drawer";
 import { NavItems } from "./NavItems";
 import { Branding } from "./Branding";
 import { ComponentProps } from "react";
+import { HowTo } from "@/packages/ui-patterns/how-to";
 
-type Props = ComponentProps<typeof Flex>;
+type Props = ComponentProps<typeof Flex> & {
+    howto?: React.ReactNode;
+};
 
 
-export function Navbar({ ...props }: Props) {
+export function Navbar({ howto = <HowTo />, ...props }: Props) {
     return (
         <Flex
-            bg={"bg.emphasized"}
-            color={"bg.inverted"}
+            layerStyle="fill.muted"
             padding={4}
             // mb={{ base: 2, md: 10 }}
             justifyContent="space-between"
@@ -27,6 +29,10 @@ export function Navbar({ ...props }: Props) {
                 <Branding />
                 <Spacer />
                 <NavItems direction="row" gap="2" w="full" />
+            </Flex>
+            <Spacer />
+            <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="start">
+                {howto}
             </Flex>
         </Flex>
     );

@@ -11,7 +11,7 @@ export function Footer({ ...props }: Props) {
                 <HStack position="fixed" bottom="0"
                 alignItems="center" justifyContent="center" w="full" gap="3" {...props}>
                     <p>Version 1.0.0</p>
-                    <ColorModeButton />
+                    <ColorModeButton variant="surface" opacity={0.3}/>
                     <p>© 2026 Distyopoly</p>
                 </HStack>
         </footer>
