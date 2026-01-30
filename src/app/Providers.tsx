@@ -1,6 +1,6 @@
 "use client"
 
-import { Provider as ChakraProvider } from "@/packages/ui/chakra/provider";
+import { Provider as ChakraProvider } from "@/packages/ui-components/chakra/provider";
 // import { SessionProvider } from "next-auth/react"
 
 

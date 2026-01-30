@@ -1,0 +1,40 @@
+import { CloseButton } from "@/packages/ui-components/close-button";
+import { DrawerBackdrop, DrawerBody, DrawerCloseTrigger, DrawerContent, DrawerFooter, DrawerHeader, DrawerPositioner, DrawerRoot, DrawerTitle, DrawerTrigger } from "@/packages/ui-components/drawer";
+import { Portal } from "@chakra-ui/react";
+import { TfiMenu } from "react-icons/tfi";
+import { NavItems } from "./NavItems";
+import { ColorModeButton } from "@/packages/ui-components/chakra/color-mode";
+import { ComponentProps } from "react";
+
+
+type Props = ComponentProps<typeof DrawerTrigger>
+
+export function NavbarDrawer({ ...props }: Props) {
+    return (    
+        <DrawerRoot placement="start">
+            <DrawerTrigger {...props}>
+                <TfiMenu />
+            </DrawerTrigger>
+            <Portal>
+                <DrawerBackdrop />
+                <DrawerPositioner>
+
+                <DrawerContent>
+                    <DrawerCloseTrigger>
+                        <CloseButton />
+                    </DrawerCloseTrigger>
+                    <DrawerHeader>
+                        <DrawerTitle>Distyopoly</DrawerTitle>
+                    </DrawerHeader>
+                    <DrawerBody>
+                        <NavItems direction="column"/>
+                    </DrawerBody>
+                    <DrawerFooter justifyContent="center">
+                        <ColorModeButton />
+                    </DrawerFooter>
+                </DrawerContent>
+                </DrawerPositioner>
+            </Portal>
+        </DrawerRoot> 
+    );
+}

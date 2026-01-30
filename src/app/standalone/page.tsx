@@ -1,14 +1,17 @@
 "use client";
 
-import { Button } from "@/packages/ui/Button";
+import { Button } from "@/packages/ui-primitives/Button";
 import { VStack } from "@chakra-ui/react";
-
+import { LinkButton } from "@/packages/ui-components/link-button";
+import { AbsoluteCenter } from "@chakra-ui/react";
 
 export default function Home() {
 
   return (
-    <VStack my={"50vh"}>
-      <Button href="/standalone/xo" variant="outline">XO </Button>
-    </VStack>
+    <AbsoluteCenter>
+      <VStack>
+        <LinkButton href="/standalone/xo" variant="outline">XO </LinkButton>
+      </VStack>
+    </AbsoluteCenter>
   );
 }

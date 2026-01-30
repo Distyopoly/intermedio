@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Providers } from "./Providers";
+import { Navbar } from "@/packages/ui-patterns/navigation";
+import { Footer } from "@/packages/ui-patterns/navigation/Footer";
+import { Box } from "@chakra-ui/react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +18,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <Providers>
-          {children}
+          <Navbar h="8vh"/>
+          <Box h="calc(100vh - 16vh)">
+            <main>{children}</main> 
+          </Box>
+          <Footer display={{ base: "none", md: "flex" }} h="8vh"/>
         </Providers>
       </body>
     </html>
