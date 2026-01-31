@@ -5,8 +5,8 @@ export default function RoadmapVotingPage() {
     return (
         <VStack>
             <Heading>Roadmap Voting</Heading>
-            <Text>This feature gives subscribers a voice in shaping the product's direction and priorities. 
-                Read more about the mechanism in the <Link href="/voting-system">voting-system</Link> 
+            <Text fontSize="lg">This feature gives subscribers a voice in shaping the product's direction and priorities. 
+                Read more about the mechanism in the <Link variant="underline" layerStyle="fill.subtle" href="/roadmap-voting/voting-system">voting-system</Link> 
             </Text>
         </VStack>
     );

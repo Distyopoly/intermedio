@@ -25,4 +25,5 @@ const items = [
     { name: "Home", href: "/" },
     { name: "Standalone", href: "/standalone" },
     { name: "Platform", href: "/platform" },
+    { name: "Roadmap Voting", href: "/roadmap-voting" },
 ]
