@@ -1,7 +1,7 @@
 "use client";
 
 import { Splitter, SplitterPanel, SplitterResizeTrigger } from "@/packages/ui-components/splitter";
-import { Box } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 import { PropsWithChildren, useState } from "react";
 import { ComponentProps } from "react";
 import VideoView from "../conference/video-view";
@@ -18,6 +18,7 @@ type Props = ComponentProps<typeof Box> & PropsWithChildren<{
 export const RoomLayout = ({ initialLayout, children, h = "100%", ...props }: Props) => {
 
     const [layout, setLayout] = useState<LayoutType>(initialLayout);
+    const orientation = useBreakpointValue({ base: "vertical", md: "horizontal" }) as "vertical" | "horizontal";
 
     const gameId = "game"
     const videoId = "videocall"
@@ -28,7 +29,7 @@ export const RoomLayout = ({ initialLayout, children, h = "100%", ...props }: Pr
         return (
             <Box justifyContent="stretch" h={h} {...props}>
                 <ControlBar h={controlbarHeight} w="100%" justifyContent="center" direction="horizontal" layerStyle="fill.subtle" alignItems="center"/>
-                <Splitter flex="1" maxH={`calc(${h} - ${controlbarHeight})`}
+                <Splitter flex="1" maxH={`calc(${h} - ${controlbarHeight})`} orientation={orientation}
                     panels={[
                         { id: videoId, collapsible: true, collapsedSize: 20, minSize: 23 },
                         { id: gameId, minSize: 23 },
