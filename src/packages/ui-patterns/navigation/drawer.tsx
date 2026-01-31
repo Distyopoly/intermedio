@@ -26,7 +26,7 @@ export function NavbarDrawer({ howto, ...props }: Props) {
                             <DrawerTitle>Distyopoly</DrawerTitle>
                         </DrawerHeader>
                         <DrawerBody>
-                            <NavItems direction="column" />
+                            <NavItems direction="column" itemProps={{ fontSize: "xl" }} gap={4} mt={2}/>
                         </DrawerBody>
                         <DrawerFooter justifyContent="center">
                             <ColorModeButton />

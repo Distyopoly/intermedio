@@ -1,18 +1,28 @@
 import { Link } from "@/packages/ui-components/link";
 import { Stack } from "@chakra-ui/react";
-import { ComponentProps } from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 
 
-type Props = ComponentProps<typeof Stack>
+type Props = ComponentProps<typeof Stack> & {
+    itemProps?: Omit<ComponentPropsWithRef<typeof Link>, "href">
+}
 
-export function NavItems({ ...props }: Props) {
+export function NavItems({ itemProps, ...props }: Props) {
     return (
         <nav>
             <Stack {...props}>
-                <Link variant="underline" href="/">Home</Link>
-                <Link href="/standalone">Standalone</Link>
-                <Link href="/platform">Platform</Link>
+                {items.map((item) => (
+                    <Link {...itemProps} href={item.href} key={item.name}>
+                        {item.name}
+                    </Link>
+                ))}
             </Stack>
         </nav>
     );
 }
+
+const items = [
+    { name: "Home", href: "/" },
+    { name: "Standalone", href: "/standalone" },
+    { name: "Platform", href: "/platform" },
+]
