@@ -29,7 +29,7 @@ export function Navbar({ howto = <HowTo />, ...props }: Props) {
             <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="end">
                 <Branding />
                 <Spacer />
-                <NavItems direction="row" gap="4" w="full" itemProps={{ fontSize: "lg" }}/>
+                <NavItems direction="row" gap="7" w="full" itemProps={{ fontSize: "lg" }}/>
             </Flex>
             <Spacer />
             <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="start">
