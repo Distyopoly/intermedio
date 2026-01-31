@@ -8,12 +8,10 @@ import { ComponentProps } from "react";
 import { HowTo } from "@/packages/ui-patterns/how-to";
 import UserMenu from "../auth/user-menu";
 
-type Props = ComponentProps<typeof Flex> & {
-    howto?: React.ReactNode;
-};
+type Props = ComponentProps<typeof Flex> & {};
 
 
-export function Navbar({ howto = <HowTo />, ...props }: Props) {
+export function Navbar({ ...props }: Props) {
     return (
         <Flex
             layerStyle="fill.muted"
@@ -25,7 +23,7 @@ export function Navbar({ howto = <HowTo />, ...props }: Props) {
             userSelect="none"
             {...props}
         >
-            <NavbarDrawer howto={howto} display={{ base: "inline-flex", md: "none" }} />
+            <NavbarDrawer display={{ base: "inline-flex", md: "none" }} />
             <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="end">
                 <Branding />
                 <Spacer />
@@ -33,7 +31,7 @@ export function Navbar({ howto = <HowTo />, ...props }: Props) {
             </Flex>
             <Spacer />
             <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="start">
-                {howto}
+                <HowTo />
             </Flex>
             <UserMenu ml={50}/>
         </Flex>

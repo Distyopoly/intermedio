@@ -1,10 +1,11 @@
-import { HStack, IconButton } from "@chakra-ui/react";
+import { HStack, Button } from "@chakra-ui/react";
 import { FaQuestion } from "react-icons/fa";
+import { ComponentProps } from "react";
 
-export function HowTo() {
+type Props = ComponentProps<typeof Button> & {};
+
+export function HowTo({ ...props }: Props) {
     return (
-        <HStack>
-            <IconButton variant="subtle" aria-label="How to" px={2}>How to play<FaQuestion /></IconButton>
-        </HStack>
+        <Button size="lg" variant="subtle" aria-label="How to" px={2} {...props}>How to play<FaQuestion /></Button>
     );
 }

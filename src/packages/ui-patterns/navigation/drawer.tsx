@@ -5,13 +5,13 @@ import { TfiMenu } from "react-icons/tfi";
 import { NavItems } from "./NavItems";
 import { ColorModeButton } from "@/packages/ui-components/chakra/color-mode";
 import { ComponentProps } from "react";
+import { VStack } from "@chakra-ui/react";
+import { HowTo } from "../how-to";
 
 
-type Props = ComponentProps<typeof DrawerTrigger> & {
-    howto: React.ReactNode;
-};
+type Props = ComponentProps<typeof DrawerTrigger> & {};
 
-export function NavbarDrawer({ howto, ...props }: Props) {
+export function NavbarDrawer({ ...props }: Props) {
     return (
         <DrawerRoot placement="start">
             <DrawerTrigger {...props}>
@@ -22,15 +22,17 @@ export function NavbarDrawer({ howto, ...props }: Props) {
                 <DrawerPositioner>
 
                     <DrawerContent>
-                        <DrawerHeader>
-                            <DrawerTitle>Distyopoly</DrawerTitle>
+                        <DrawerHeader textAlign="center">
+                            <DrawerTitle fontSize="2xl">Distyopoly</DrawerTitle>
                         </DrawerHeader>
                         <DrawerBody>
                             <NavItems direction="column" itemProps={{ fontSize: "xl" }} gap={4} mt={2}/>
                         </DrawerBody>
                         <DrawerFooter justifyContent="center">
-                            <ColorModeButton />
-                            {howto}
+                            <VStack gap={6}>
+                                <HowTo size="xl" px={18}/>
+                                <ColorModeButton />
+                            </VStack>
                         </DrawerFooter>
                     </DrawerContent>
                 </DrawerPositioner>
