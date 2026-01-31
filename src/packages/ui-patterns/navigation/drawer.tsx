@@ -8,7 +8,7 @@ import { ComponentProps } from "react";
 
 
 type Props = ComponentProps<typeof DrawerTrigger> & {
-    howto?: React.ReactNode;
+    howto: React.ReactNode;
 };
 
 export function NavbarDrawer({ howto, ...props }: Props) {
@@ -22,9 +22,6 @@ export function NavbarDrawer({ howto, ...props }: Props) {
                 <DrawerPositioner>
 
                     <DrawerContent>
-                        <DrawerCloseTrigger>
-                            <CloseButton />
-                        </DrawerCloseTrigger>
                         <DrawerHeader>
                             <DrawerTitle>Distyopoly</DrawerTitle>
                         </DrawerHeader>

@@ -15,12 +15,19 @@ export interface AvatarProps extends ChakraAvatar.RootProps {
   fallback?: React.ReactNode
 }
 
+const colorPalette = ["red", "blue", "green", "yellow", "purple", "orange"]
+
+const pickPalette = (name: string) => {
+  const index = name.charCodeAt(0) % colorPalette.length
+  return colorPalette[index]
+}
+
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   function Avatar(props, ref) {
     const { name, src, srcSet, loading, icon, fallback, children, ...rest } =
       props
     return (
-      <ChakraAvatar.Root ref={ref} {...rest}>
+      <ChakraAvatar.Root ref={ref} {...rest} colorPalette={pickPalette(name ?? "")}>
         <ChakraAvatar.Fallback name={name}>
           {icon || fallback}
         </ChakraAvatar.Fallback>
