@@ -1,7 +1,7 @@
 import { LinkButton } from "@/packages/ui-components/link-button";
 import { AbsoluteCenter, Text, VStack } from "@chakra-ui/react";
 
-export default function StandaloneLayout() {
+export default function StandalonePage() {
     return (
         <AbsoluteCenter>
             <VStack gap="20">
