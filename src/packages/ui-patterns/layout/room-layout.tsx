@@ -1,7 +1,7 @@
 "use client";
 
 import { Splitter, SplitterPanel, SplitterResizeTrigger } from "@/packages/ui-components/splitter";
-import { Box, ClientOnly, useBreakpointValue } from "@chakra-ui/react";
+import { Box, ClientOnly, Spinner, useBreakpointValue } from "@chakra-ui/react";
 import { PropsWithChildren, useState } from "react";
 import { ComponentProps } from "react";
 import VideoView from "../conference/video-view";
@@ -27,7 +27,8 @@ export const RoomLayout = ({ initialLayout, children, h = "100%", ...props }: Pr
 
     if (layout === "split") {
         return (
-            <ClientOnly>
+            <ClientOnly fallback={<Spinner size="xl" /> }>
+
             <Box justifyContent="stretch" h={h} {...props}>
                 <ControlBar h={controlbarHeight} w="100%" justifyContent="center" direction="horizontal" layerStyle="fill.subtle" alignItems="center"/>
                 <Splitter flex="1" maxH={`calc(${h} - ${controlbarHeight})`} orientation={orientation}
