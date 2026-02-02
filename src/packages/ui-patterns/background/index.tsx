@@ -1,13 +1,21 @@
-import { Box, ClientOnly, Portal } from "@chakra-ui/react";
-import Image from "next/image";
+"use client";
+
+import { useColorMode } from "@/packages/ui-components/chakra/color-mode";
+import { Box, ClientOnly, Image, Portal } from "@chakra-ui/react";
+import NextImage from "next/image";
 import { ComponentProps } from "react";
 
 
 type Props = ComponentProps<typeof Box> & {
     src?: string;
+    invert?: boolean;
 }
 
-export function MainAreaBackground({ src, ...props }: Props) {
+export function MainAreaBackground({ src, invert=true, ...props }: Props) {
+    const { colorMode } = useColorMode();
+
+    const filter = (invert && colorMode === "dark") ? "invert(90%)" : undefined;
+ 
     return (
         <Portal key={src}>
             <ClientOnly>
@@ -21,16 +29,16 @@ export function MainAreaBackground({ src, ...props }: Props) {
                     {...props}
                 >
                     {src && (
-                        <Image
-                            src={src}
-                            alt="Background"
-                            fill
-                            style={{
-                                objectFit: "cover",
-                                objectPosition: "top",
-                            }}
-                            priority
-                        />
+                        <Image asChild fit="cover" objectFit="cover" objectPosition="top"
+                            filter={filter}
+                        >
+                            <NextImage
+                                src={src}
+                                alt="Game Art Cover"
+                                fill
+                                priority
+                            />
+                        </Image>
                     )}
                 </Box>
             </ClientOnly>
