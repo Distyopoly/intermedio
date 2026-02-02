@@ -18,6 +18,7 @@ export default async function LoginRequired({ children }: Props) {
                 alignItems="center"
                 justifyContent="center"
                 p={4}
+                mt="20vh"
             >
                 <Alert
                     title="Unauthorized"
@@ -25,6 +26,8 @@ export default async function LoginRequired({ children }: Props) {
                     maxW="md"
                     shadow="xl"
                     borderRadius="xl"
+                    lineHeight="tall"
+                    variant="surface"
                 >
                     <VStack gap={6} py={2}>
                         <Text textAlign="center" fontSize="lg">
