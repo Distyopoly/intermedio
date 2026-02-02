@@ -8,7 +8,7 @@ export default function Layout({children}: Props) {
     return (
         <Center>
             {children}
-            <MainAreaBackground key="xo-background" bgImage="url('/xo-background.png')" bgPos="top" bgRepeat="no-repeat" bgSize="cover"/>
+            <MainAreaBackground key="nous-background" bgImage="url('/nous-background.png')" bgPos="top" bgRepeat="no-repeat" bgSize="cover"/>
         </Center>
     );
 }
