@@ -11,7 +11,6 @@ export default function Home() {
         <LinkButton href="/platform" variant="solid" size="xl">Platform</LinkButton>
         <LinkButton href="/standalone" variant="subtle" size="xl">Standalone</LinkButton>
       </HStack>
-      <MainAreaBackground src="/main-page-background.jpg" invert={false} />
     </Center>
   );
 }
