@@ -1,4 +1,4 @@
-import { RadioCardLabel, RadioCardRoot, RadioCardItem } from "@/packages/ui-components/chakra/radio-card";
+import { RadioCardLabel, RadioCardRoot, RadioCardItem } from "@/packages/ui-components/radio-card";
 import { HStack } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/react";
 import { TbCrosshair } from "react-icons/tb";
