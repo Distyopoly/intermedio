@@ -18,7 +18,6 @@ export function MainAreaBackground({ src, invert=true, ...props }: Props) {
  
     return (
         <Portal key={src}>
-            <ClientOnly>
                 <Box
                     h="92vh"
                     bottom="0"
@@ -41,7 +40,6 @@ export function MainAreaBackground({ src, invert=true, ...props }: Props) {
                         </Image>
                     )}
                 </Box>
-            </ClientOnly>
         </Portal>
     );
 }
