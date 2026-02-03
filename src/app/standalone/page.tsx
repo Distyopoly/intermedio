@@ -15,7 +15,7 @@ export default function StandalonePage() {
                     variant="outline"
                 >
 
-                    <Text fontSize="2xl">The standalone mode is supposed to be used for game development only.</Text>
+                    <Text fontSize={{ base: "md", md: "2xl" }}>The standalone mode is supposed to be used for game development only.</Text>
                 </Alert>
                 <VStack>
                     <LinkButton href="/standalone/xo" variant="solid">XO </LinkButton>
