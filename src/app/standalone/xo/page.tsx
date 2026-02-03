@@ -1,5 +1,5 @@
 import { AbsoluteCenter, Bleed, Button, Heading, VStack } from "@chakra-ui/react";
-import { SettingsDialog } from "./settings-dialog";
+import { SettingsDialog } from "../../../packages/ui-patterns/room/settings-dialog";
 import CreateRoomButton from "@/packages/ui-patterns/room/create-room-button";
 
 export default function RoomSelectionPage() {
