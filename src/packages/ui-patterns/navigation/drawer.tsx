@@ -23,10 +23,10 @@ export function NavbarDrawer({ ...props }: Props) {
 
                     <DrawerContent>
                         <DrawerHeader textAlign="center">
-                            <DrawerTitle fontSize="2xl">Distyopoly</DrawerTitle>
+                            <DrawerTitle fontSize="2xl" letterSpacing={3}>Distyopoly</DrawerTitle>
                         </DrawerHeader>
                         <DrawerBody>
-                            <NavItems direction="column" itemProps={{ fontSize: "xl" }} gap={4} mt={2}/>
+                            <NavItems direction="column" itemProps={{ fontSize: "xl" }} gap={9} mt={7}/>
                         </DrawerBody>
                         <DrawerFooter justifyContent="center">
                             <VStack gap={6}>
