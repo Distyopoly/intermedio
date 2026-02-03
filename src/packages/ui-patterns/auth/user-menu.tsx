@@ -2,7 +2,7 @@
 "use client";
 import { Avatar } from "@/packages/ui-components/avatar";
 import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "@/packages/ui-components/menu";
-import { Button, ClientOnly, HStack, MenuPositioner, Portal, SkeletonCircle, Text } from "@chakra-ui/react";
+import { Box, Button, ClientOnly, Flex, HStack, MenuPositioner, Portal, SkeletonCircle, Text } from "@chakra-ui/react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { ComponentProps } from "react";
@@ -34,7 +34,7 @@ export default function UserMenu(props: Props) {
                         <Portal>
                             <MenuPositioner>
                                 <MenuContent gap={3}>
-                                    <Text fontWeight="bold" ml={5} mb={6}>@{session.user?.name}</Text>
+                                    <Text fontWeight="bold" mx={5} mb={6} mt={2}>@{session.user?.name}</Text>
                                     <MenuItem value="account" asChild>
                                         <Link href="/account">Account</Link>
                                     </MenuItem>
