@@ -1,4 +1,4 @@
-import { deriveGameRecipe } from "@/packages/ui-patterns/room/game-derivation";
+import { deriveGameRecipe } from "@/packages/ui-patterns/room/game-derivation/game-derivation";
 
 export default deriveGameRecipe({
     slug: "xo",

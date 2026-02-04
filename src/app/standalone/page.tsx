@@ -5,7 +5,7 @@ import { Alert } from "@/packages/ui-components/alert";
 import { RadioCardItem, RadioCardLabel, RadioCardRoot } from "@/packages/ui-components/radio-card";
 import { MainAreaBackground } from "@/packages/ui-patterns/background";
 import CreateRoomButton from "@/packages/ui-patterns/room/create-room-button";
-import { GameDerivationContext } from "@/packages/ui-patterns/room/game-derivation-provider";
+import { GameDerivationContext } from "@/packages/ui-patterns/room/game-derivation/game-derivation-provider";
 import { Button, For, HStack } from "@chakra-ui/react";
 import { AbsoluteCenter, ButtonGroup, Text, VStack } from "@chakra-ui/react";
 import { useCallback, useContext } from "react";
@@ -45,13 +45,13 @@ export default function StandalonePage() {
                                 <For each={Object.values(gameDerivations)}>
                                     {(derivation) => (
                                         <RadioCardItem onClick={useCallback(() => setGameDerivation(derivation.slug), [])}
-                                        key={derivation.slug} value={derivation.slug} label={derivation.name}
+                                            key={derivation.slug} value={derivation.slug} label={derivation.name}
                                             indicator={null} />
                                     )}
                                 </For>
                             </HStack>
                         </RadioCardRoot>
-                        <CreateRoomButton/>
+                        <CreateRoomButton />
                     </VStack>
                 </VStack>
             </AbsoluteCenter>
