@@ -26,7 +26,7 @@ export default function UserMenu(props: Props) {
     if (session) {
         return (
             <HStack {...props}>
-                <ClientOnly fallback={<SkeletonCircle size="10" />}>
+                <ClientOnly fallback={<SkeletonCircle size="10" variant="shine" />}>
                     <MenuRoot positioning={{ placement: "bottom-end" }}>
                         <MenuTrigger rounded="full" focusRing="outside">
                             <Avatar name={session.user?.name ?? ""} src={session.user?.image ?? undefined} />

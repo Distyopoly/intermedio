@@ -7,7 +7,7 @@ type Props = ComponentProps<typeof HStack>;
 
 export function ControlBar(props: Props) {
     return (
-        <HStack gap={4} justifyContent="center" py={4} wrap="wrap" {...props}>
+        <HStack justifyContent="center" {...props}>
             <TrackToggle source={Track.Source.Microphone}> Microphone</TrackToggle>
             <TrackToggle source={Track.Source.Camera}> Camera</TrackToggle>
             {/* {isGameMaster && <Button onClick={() => restartMatch()}>Restart Match</Button>} */}

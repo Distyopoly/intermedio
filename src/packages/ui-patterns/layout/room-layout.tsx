@@ -39,7 +39,9 @@ export const RoomLayout = ({ roomName, initialLayout, children, roomHeight = { b
                         loadingComponent={<Spinner size="xl" />}
                         errorComponent={<Text>Room Error</Text>}
                     >
-                        <ControlBar h={controlbarHeight} w="100vw" justifyContent="center" alignItems="center" />
+                        <ControlBar h={controlbarHeight} w="100vw" justifyContent="center" alignItems="center" 
+                        gap={4} wrap="wrap"
+                        />
                         <Splitter flex="1" maxH={`calc(${h} - ${controlbarHeight})`} orientation={orientation}
                             panels={[
                                 { id: videoId, collapsible: true, collapsedSize: 20, minSize: 23 },
