@@ -1,46 +1,48 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { GameDerivation } from "./game-derivation";
 import { gameDerivations } from "@/games/game-list";
+import { useImmerReducer } from "use-immer";
 
-export type GameDerivationContextType = {
-    gameDerivation: GameDerivation;
-    setGameDerivation: (slug: string) => void;
-    previewDerivation: GameDerivation | undefined;
-    setPreviewDerivation: (slug: string) => void;
+export type RoomAction = {
+    type: "setGameDerivation";
+    payload: string | null;
 }
 
-const defaultGameDerivation = Object.values(gameDerivations)[0];
+export type RoomState = {
+    gameDerivation: GameDerivation;
+}
 
-export const GameDerivationContext = createContext<GameDerivationContextType>({
-    gameDerivation: defaultGameDerivation,
-    setGameDerivation: () => { },
-    previewDerivation: undefined,
-    setPreviewDerivation: () => { }
+export type RoomContextType = {
+    state: RoomState;
+    dispatch: React.Dispatch<RoomAction>;
+}
+
+// const defaultGameDerivationSlug = gameDerivations[0].slug;
+const defaultGameDerivationSlug = "xo";
+
+const defaultGameDerivation: GameDerivation = gameDerivations[defaultGameDerivationSlug];
+
+export const RoomContext = createContext<RoomContextType>({
+    state: { gameDerivation: defaultGameDerivation },
+    dispatch: () => { },
 })
 
-export function GameDerivationProvider({ children }: { children: React.ReactNode }) {
-    const [gameDerivation, setGameDerivationState] = useState(defaultGameDerivation);
-    const [previewDerivation, setPreviewDerivationState] = useState<GameDerivation | undefined>(defaultGameDerivation);
-
-    const setGameDerivation = (slug: string) => {
-        const derivation = gameDerivations[slug];
-        if (derivation) {
-            setGameDerivationState(derivation);
-        }
+function reducer(draft: RoomState, action: RoomAction) {
+    switch (action.type) {
+        case "setGameDerivation":
+            draft.gameDerivation = gameDerivations[action.payload ?? defaultGameDerivationSlug];
+            return;
     }
+}
 
-    const setPreviewDerivation = (slug: string) => {
-        const derivation = gameDerivations[slug];
-        if (derivation) {
-            setPreviewDerivationState(derivation);
-        }
-    }
+export function RoomProvider({ children }: { children: React.ReactNode }) {
+    const [state, dispatch] = useImmerReducer(reducer, { gameDerivation: defaultGameDerivation });
 
     return (
-        <GameDerivationContext.Provider value={{ gameDerivation, setGameDerivation, previewDerivation, setPreviewDerivation }}>
+        <RoomContext.Provider value={{ state, dispatch }}>
             {children}
-        </GameDerivationContext.Provider>
+        </RoomContext.Provider>
     );
 }
