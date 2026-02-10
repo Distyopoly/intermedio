@@ -20,11 +20,11 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar h="8vh" />
-          <Box h="calc(100vh - 16vh)" as="main">
+          <Box h="calc(100vh - 16vh)" as="main" position="relative">
             {children}
           </Box>
           <Footer display={{ base: "none", md: "flex" }} h="8vh" />
-          <MainAreaBackground key="main-page.jpg" src="/main-page-background.jpg" invert={false} zIndex={-2}/>
+          <MainAreaBackground key="main-page.jpg" src="/main-page-background.jpg" invert={false} zIndex={-2} />
         </Providers>
       </body>
     </html>

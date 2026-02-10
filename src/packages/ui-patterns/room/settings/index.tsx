@@ -1,15 +1,32 @@
+"use client";
+
 import { DialogRoot, DialogTrigger, DialogContent, DialogHeader, DialogBody, DialogFooter, DialogCloseTrigger, DialogTitle, DialogDescription, DialogActionTrigger } from "@/packages/ui-components/dialog";
 import { Button, ScrollArea, IconButton } from "@chakra-ui/react";
 import { CiSettings } from "react-icons/ci";
-import LayoutMode from "./layout-mode";
-import RoomName from "./room-name";
+import LayoutModeRadio from "./input-element/layout-mode";
+import RoomName from "./input-element/room-name";
+import { RoomSettingsContext } from "./settings-provider";
+import { useContext } from "react";
+import { useImmer } from "use-immer";
+import { ComponentProps } from "react";
+import InputContainer from "./input-element/input-container";
 
-export function SettingsDialog() {
+type Props = ComponentProps<typeof IconButton>;
+
+
+
+export function SettingsDialog({ ...props }: Props) {
+
+    const { roomSettings, setRoomSettings } = useContext(RoomSettingsContext);
+
+    const [temporarySettings, setTemporarySettings] = useImmer(roomSettings);
+
+
     return (
-        <DialogRoot size="lg">
+        <DialogRoot size={{ mdDown: "full", md: "lg" }}>
             <DialogTrigger asChild>
-                <IconButton variant="outline" size="2xl" aria-label="Room Settings">
-                    <CiSettings/>
+                <IconButton {...props} aria-label="Room Settings">
+                    <CiSettings />
                 </IconButton>
             </DialogTrigger>
             <DialogContent gap={3}>
@@ -25,19 +42,16 @@ export function SettingsDialog() {
                     <ScrollArea.Root height="100%" size="sm">
                         <ScrollArea.Viewport>
                             <ScrollArea.Content paddingEnd="5" textStyle="sm">
-                                <RoomName mb={10} mt={3} ml={3}/>
-                                <LayoutMode/>
+                                <InputContainer />
                             </ScrollArea.Content>
                         </ScrollArea.Viewport>
                         <ScrollArea.Scrollbar />
                     </ScrollArea.Root>
                 </DialogBody>
-                <DialogFooter justifyContent="start">
-                    <Button>Save</Button>
-                    <DialogActionTrigger asChild>
-                        <Button variant="outline">Cancel</Button>
-                    </DialogActionTrigger>
-                </DialogFooter>
+                <DialogCloseTrigger mr={2} mt={2} asChild>
+                    {/* <Button size="sm" mr={2} mt={2}>Back</Button> */}
+                    Back
+                </DialogCloseTrigger>
             </DialogContent>
         </DialogRoot>
     )
