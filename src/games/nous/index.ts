@@ -1,4 +1,4 @@
-import { deriveGameRecipe } from "@/features/room/game-derivation/game-derivation";
+import { deriveGameRecipe } from "@/entities/game-derivation/game-derivation";
 
 export default deriveGameRecipe({
     slug: "nous",
