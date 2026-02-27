@@ -5,7 +5,7 @@ import ky from "ky";
 
 
 function tokenFetcher(roomName: string) {
-    const url = `/api/livekit/tokens?roomName=${roomName}`;
+    const url = `/api/livekit/token?roomName=${roomName}`;
 
     return ky.get(url, {}).json<{token: string}>();
 }
@@ -13,7 +13,7 @@ function tokenFetcher(roomName: string) {
 export function useLiveKitToken(roomName?: string) {
     
     const { data, error, isLoading } = useSWR(
-        roomName ? `/api/livekit/tokens?roomName=${roomName}` : null,
+        roomName ? `/api/livekit/token?roomName=${roomName}` : null,
         tokenFetcher,
         {
             revalidateOnFocus: false,
