@@ -1,5 +1,5 @@
 import { adjectives, uniqueNamesGenerator, Config } from "unique-names-generator";
-import { boardgames } from "@/packages/lib/random/dictionaries/boardgames";
+import { boardgames } from "@/shared/lib/random/dictionaries/boardgames";
 
 export function randomRoomName() {
 

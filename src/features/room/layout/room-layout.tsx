@@ -4,10 +4,10 @@ import { Splitter, SplitterPanel, SplitterResizeTrigger } from "@/packages/ui-co
 import { Box, ClientOnly, Spinner, useBreakpointValue } from "@chakra-ui/react";
 import { PropsWithChildren, useState } from "react";
 import { ComponentProps } from "react";
-import VideoView from "../conference/video-view";
-import { ControlBar } from "../conference/control-bar";
+import VideoView from "../../../features/conference/video-view";
+import { ControlBar } from "../../../features/conference/control-bar";
 import "@livekit/components-styles";
-import { RoomContextProvider } from "../conference/room-context-provider";
+import { RoomContextProvider } from "../../../features/conference/room-context-provider";
 import { Text } from "@chakra-ui/react";
 
 type LayoutType = "split" | "game-only";

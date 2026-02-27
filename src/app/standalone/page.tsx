@@ -4,9 +4,9 @@ import { gameDerivations } from "@/games/game-list";
 import { Alert } from "@/packages/ui-components/alert";
 import { RadioCardItem, RadioCardLabel, RadioCardRoot } from "@/packages/ui-components/radio-card";
 import { MainAreaBackground } from "@/packages/ui-patterns/background";
-import CreateRoomButton from "@/packages/ui-patterns/room/create-room-button";
-import { RoomContext } from "@/packages/ui-patterns/room/game-derivation/game-derivation-provider";
-import { GameSwitcher } from "@/packages/ui-patterns/room/game-switcher";
+import CreateRoomButton from "@/features/room/create-room-button";
+import { RoomContext } from "@/features/room/game-derivation/game-derivation-provider";
+import { GameSwitcher } from "@/features/room/game-switcher";
 import { Button, For, HStack } from "@chakra-ui/react";
 import { AbsoluteCenter, ButtonGroup, Text, VStack } from "@chakra-ui/react";
 import { useCallback, useContext } from "react";
@@ -36,7 +36,7 @@ export default function StandalonePage() {
                             variant="solid"
                             layerStyle="fill.surface"
                             p={5}
-                            borderRadius="xl" 
+                            borderRadius="xl"
                         />
                         <CreateRoomButton roomPrefix="/standalone/room" />
                     </VStack>

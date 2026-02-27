@@ -1,9 +1,10 @@
 "use client";
 
-import { createContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { GameDerivation } from "./game-derivation";
 import { gameDerivations } from "@/games/game-list";
 import { useImmerReducer } from "use-immer";
+
 
 export type RoomAction = {
     type: "setGameDerivation";
@@ -11,6 +12,7 @@ export type RoomAction = {
 }
 
 export type RoomState = {
+    roomName: string;
     gameDerivation: GameDerivation;
 }
 
@@ -25,7 +27,10 @@ const defaultGameDerivationSlug = "xo";
 const defaultGameDerivation: GameDerivation = gameDerivations[defaultGameDerivationSlug];
 
 export const RoomContext = createContext<RoomContextType>({
-    state: { gameDerivation: defaultGameDerivation },
+    state: { 
+        roomName: "",
+        gameDerivation: defaultGameDerivation 
+    },
     dispatch: () => { },
 })
 
@@ -38,8 +43,11 @@ function reducer(draft: RoomState, action: RoomAction) {
 }
 
 export function RoomProvider({ children }: { children: React.ReactNode }) {
-    const [state, dispatch] = useImmerReducer(reducer, { gameDerivation: defaultGameDerivation });
-
+    const [state, dispatch] = useImmerReducer(reducer, { 
+        roomName: "",
+        gameDerivation: defaultGameDerivation 
+    });
+    
     return (
         <RoomContext.Provider value={{ state, dispatch }}>
             {children}

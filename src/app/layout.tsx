@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Providers } from "./Providers";
-import { Navbar } from "@/packages/ui-patterns/navigation";
-import { Footer } from "@/packages/ui-patterns/navigation/Footer";
+import { Navbar } from "@/features/navigation";
+import { Footer } from "@/features/navigation/Footer";
 import { Box } from "@chakra-ui/react";
 import { MainAreaBackground } from "@/packages/ui-patterns/background";
 import { PropsWithChildren } from "react";

@@ -5,8 +5,8 @@ import { NavbarDrawer } from "./drawer";
 import { NavItems } from "./NavItems";
 import { Branding } from "./Branding";
 import { ComponentProps } from "react";
-import { HowTo } from "@/packages/ui-patterns/how-to";
-import UserMenu from "../auth/user-menu";
+import { HowTo } from "@/features/how-to";
+import UserMenu from "@/features/auth/ui/user-menu";
 import { RoomInvite } from "./room-invite";
 
 type Props = ComponentProps<typeof Flex> & {};
@@ -28,14 +28,14 @@ export function Navbar({ ...props }: Props) {
             <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="end">
                 <Branding />
                 <Spacer />
-                <NavItems direction="row" gap="7" w="full" itemProps={{ fontSize: "lg" }}/>
+                <NavItems direction="row" gap="7" w="full" itemProps={{ fontSize: "lg" }} />
             </Flex>
             <Spacer />
             <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="center">
                 <RoomInvite />
                 <HowTo />
             </Flex>
-            <UserMenu ml={50}/>
+            <UserMenu ml={50} />
         </Flex>
     );
 };

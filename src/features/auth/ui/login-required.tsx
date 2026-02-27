@@ -3,7 +3,7 @@ import { Flex, Text, VStack } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 import LoginButton from "./login-button";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/packages/ui-patterns/auth/next-auth/auth-options";
+import { authOptions } from "@/features/auth/ui/next-auth/auth-options";
 
 type Props = PropsWithChildren;
 

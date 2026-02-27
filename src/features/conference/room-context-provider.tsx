@@ -6,7 +6,7 @@ import { Room } from 'livekit-client';
 import { useEffect, useState } from 'react';
 import { PropsWithChildren } from 'react';
 import { Center, ClientOnly, Spinner, Text, VStack } from '@chakra-ui/react';
-import { useLiveKitToken } from '@/packages/hooks/useLiveKitToken';
+import { useLiveKitToken } from '@/features/livekit/hooks/useLiveKitToken';
 import { useRouter } from 'next/navigation';
 
 type Props = PropsWithChildren<{ 

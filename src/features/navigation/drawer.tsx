@@ -6,7 +6,7 @@ import { NavItems } from "./NavItems";
 import { ColorModeButton } from "@/packages/ui-components/chakra/color-mode";
 import { ComponentProps } from "react";
 import { VStack } from "@chakra-ui/react";
-import { HowTo } from "../how-to";
+import { HowTo } from "@/features/how-to";
 
 
 type Props = ComponentProps<typeof DrawerTrigger> & {};
@@ -26,11 +26,11 @@ export function NavbarDrawer({ ...props }: Props) {
                             <DrawerTitle fontSize="2xl" letterSpacing={3}>Distyopoly</DrawerTitle>
                         </DrawerHeader>
                         <DrawerBody>
-                            <NavItems direction="column" itemProps={{ fontSize: "xl" }} gap={9} mt={7}/>
+                            <NavItems direction="column" itemProps={{ fontSize: "xl" }} gap={9} mt={7} />
                         </DrawerBody>
                         <DrawerFooter justifyContent="center">
                             <VStack gap={6}>
-                                <HowTo size="xl" px={18}/>
+                                <HowTo size="xl" px={18} />
                                 <ColorModeButton />
                             </VStack>
                         </DrawerFooter>
