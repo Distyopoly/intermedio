@@ -7,6 +7,7 @@ import { Branding } from "./Branding";
 import { ComponentProps } from "react";
 import { HowTo } from "@/packages/ui-patterns/how-to";
 import UserMenu from "../auth/user-menu";
+import { RoomInvite } from "./room-invite";
 
 type Props = ComponentProps<typeof Flex> & {};
 
@@ -30,7 +31,8 @@ export function Navbar({ ...props }: Props) {
                 <NavItems direction="row" gap="7" w="full" itemProps={{ fontSize: "lg" }}/>
             </Flex>
             <Spacer />
-            <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="start">
+            <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="center">
+                <RoomInvite />
                 <HowTo />
             </Flex>
             <UserMenu ml={50}/>
