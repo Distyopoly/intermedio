@@ -4,17 +4,18 @@ import { Navbar } from "@/packages/ui-patterns/navigation";
 import { Footer } from "@/packages/ui-patterns/navigation/Footer";
 import { Box } from "@chakra-ui/react";
 import { MainAreaBackground } from "@/packages/ui-patterns/background";
+import { PropsWithChildren } from "react";
 
 export const metadata: Metadata = {
   title: "Distyopoly",
   description: "Boardgame experience through distance.",
 };
 
+type Props = PropsWithChildren;
+
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Props) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
