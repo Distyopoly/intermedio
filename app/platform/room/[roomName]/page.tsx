@@ -1,4 +1,4 @@
-import GameArea from "@/widgets/game-area";
+import { GameArea } from "@widgets/game-area";
 
 export default function Page() {
 

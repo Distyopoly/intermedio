@@ -1,5 +1,5 @@
 import { useParams } from "next/navigation";
-import { RoomInviteButton } from "./button";
+import { RoomInviteButton } from "./ui/button";
 
 export const RoomInvite = () => {
     const params = useParams();

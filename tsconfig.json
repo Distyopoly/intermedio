@@ -19,10 +19,14 @@
       }
     ],
     "paths": {
-      "@packages/contract/*": ["./packages/contract/*"],
-      "@packages/ui/*": ["./packages/ui/*"],
-      "@packages/lib/*": ["./packages/lib/*"],
-      "@packages/types/*": ["./packages/types/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@entities/*": ["./src/entities/*"],
+      "@features/*": ["./src/features/*"],
+      "@app/*": ["./src/app/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@widgets/*": ["./src/widgets/*"],
+
+      "@packages/*": ["./src/packages/*"],
       "@/*": ["./src/*"],
     }
   },

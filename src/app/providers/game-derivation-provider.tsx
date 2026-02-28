@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, useContext, useEffect } from "react";
-import { GameDerivation } from "./game-derivation";
+import { createContext } from "react";
+import { GameDerivation } from "@entities/game-derivation";
 import { gameDerivations } from "@/games/game-list";
 import { useImmerReducer } from "use-immer";
 

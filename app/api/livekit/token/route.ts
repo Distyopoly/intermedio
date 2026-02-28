@@ -1,7 +1,7 @@
 import { AccessToken, RoomServiceClient } from "livekit-server-sdk";
 import { NextRequest } from "next/server";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/shared/lib/auth/config/auth-options";
+import { authOptions } from "@features/auth/config/auth-options";
 import { nanoid } from "nanoid";
 
 export async function GET(request: NextRequest) {

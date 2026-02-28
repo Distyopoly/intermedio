@@ -2,7 +2,6 @@
 
 import { Center, HStack } from "@chakra-ui/react";
 import { LinkButton } from "@/packages/ui-components/link-button";
-import { MainAreaBackground } from "@/packages/ui-patterns/background";
 
 export default function Home() {
   return (

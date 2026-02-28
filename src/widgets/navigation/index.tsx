@@ -1,13 +1,13 @@
 "use client";
 
 import { Flex, Spacer } from "@chakra-ui/react";
-import { NavbarDrawer } from "./drawer";
+import { NavbarDrawer } from "./ui/drawer";
 import { NavItems } from "./NavItems";
-import { Branding } from "./Branding";
+import { Branding } from "./ui/Branding";
 import { ComponentProps } from "react";
-import { HowTo } from "@/features/how-to";
-import UserMenu from "@/features/user-menu";
-import { RoomInvite } from "../../features/room-invite";
+import { HowTo } from "@features/how-to";
+import { UserMenu } from "@/widgets/user-menu";
+import { RoomInvite } from "@features/room-invite";
 
 type Props = ComponentProps<typeof Flex> & {};
 

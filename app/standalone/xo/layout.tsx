@@ -1,5 +1,5 @@
 
-import LoginRequired from "@/shared/lib/auth/ui/login-required";
+import LoginRequired from "@features/auth/ui/login-required";
 import { PropsWithChildren } from "react";
 
 export default function Layout({ children }: PropsWithChildren) {

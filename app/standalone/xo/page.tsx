@@ -1,5 +1,5 @@
 import { AbsoluteCenter, Bleed, Button, Heading, VStack } from "@chakra-ui/react";
-import { SettingsDialog } from "../../../src/pages/room/settings";
+import { SettingsDialog } from "../../../src/pages/room/ui/settings";
 import CreateRoomButton from "@/pages/room/create-room-button";
 import { RoomSettingsProvider } from "@/app/providers/room-settings-provider";
 

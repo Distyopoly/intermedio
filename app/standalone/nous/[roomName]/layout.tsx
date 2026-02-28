@@ -1,6 +1,6 @@
 import { PropsWithChildren, use } from "react";
 import { RoomLayout as RoomLayoutComponent } from "@/packages/ui-patterns/layout/room-layout";
-import LoginRequired from "@/shared/lib/auth/ui/login-required";
+import LoginRequired from "@features/auth/ui/login-required";
 
 type Props = PropsWithChildren<{
     params: Promise<{ roomName: string }>;

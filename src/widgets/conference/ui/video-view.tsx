@@ -4,7 +4,7 @@ import { VideoGrid } from "./video-layout/video-grid";
 
 type Props = ComponentProps<typeof Box>;
 
-export default function VideoView(props: Props) {
+export function VideoView(props: Props) {
     return (
         <Box w="100%" h="100%" {...props}>
             <VideoGrid />

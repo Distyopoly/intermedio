@@ -15,7 +15,6 @@ type Props = PropsWithChildren<{
   loadingComponent: React.ReactNode;
 }>;
 
-
 export function RoomContextProvider({ children, roomName, errorComponent, loadingComponent }: Props) {
   const [room] = useState(() => new Room({}));
   const router = useRouter();

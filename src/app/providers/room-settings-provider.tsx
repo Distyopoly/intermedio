@@ -1,6 +1,6 @@
 "use client";
 
-import { randomRoomName } from "@/shared/lib/generators/room-name";
+import { randomRoomName } from "@/shared/lib/generators";
 import { Dispatch, PropsWithChildren } from "react";
 import { createContext } from "react";
 import { useImmerReducer } from "use-immer";

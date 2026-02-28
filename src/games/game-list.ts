@@ -1,4 +1,4 @@
-import { GameDerivation } from "@/entities/game-derivation/game-derivation";
+import { GameDerivation } from "@entities/game-derivation";
 import nous from "./nous";
 import xo from "./xo";
 
