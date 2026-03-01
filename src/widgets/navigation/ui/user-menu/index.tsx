@@ -1,12 +1,12 @@
 
 "use client";
-import { Avatar } from "@/packages/ui-components/avatar";
-import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "@/packages/ui-components/menu";
+import { Avatar } from "@packages/ui-components/avatar";
+import { MenuContent, MenuItem, MenuRoot, MenuTrigger } from "@packages/ui-components/menu";
 import { Badge, Box, ClientOnly, Float, HStack, MenuPositioner, Portal, SkeletonCircle, Text } from "@chakra-ui/react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { ComponentProps } from "react";
-import { LoginButton, SignOutButton } from "@/features/auth";
+import { LoginButton, SignOutButton } from "@features/auth";
 
 
 type Props = ComponentProps<typeof HStack>;
