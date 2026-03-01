@@ -4,18 +4,19 @@ import { Icon } from "@chakra-ui/react";
 import { TbCrosshair } from "react-icons/tb";
 import { PiVideoConferenceLight } from "react-icons/pi";
 import { ComponentProps } from "react";
-import { RoomSettingsContext, LayoutMode } from "@app/providers";
+import { RoomDraftContext } from "../../model/room-draft.context";
+import { LayoutMode } from "../../model/room-draft.reducer";
 import { useContext } from "react";
 
 type Props = ComponentProps<typeof RadioCardRoot>;
 
 export default function LayoutModeRadio({ ...props }: Props) {
-    const { roomSettings, setRoomSettings } = useContext(RoomSettingsContext);
+    const { roomDraft, setRoomDraft } = useContext(RoomDraftContext);
 
     return (
         <RadioCardRoot
-            value={roomSettings.layoutMode}
-            onValueChange={(value) => setRoomSettings({ type: "setLayoutMode", payload: value.value as LayoutMode })}
+            value={roomDraft.layoutMode}
+            onValueChange={(value) => setRoomDraft({ type: "setLayoutMode", payload: value.value as LayoutMode })}
             orientation="vertical"
             align="center"
             gap={5}

@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { Button } from "@chakra-ui/react";
 import { ComponentProps, useContext } from "react";
-import { RoomSettingsContext } from "@/app/providers";
+import { RoomDraftContext } from "@features/manage-room";
 
 type Props = ComponentProps<typeof Button> & {
     roomPrefix: string;
@@ -12,10 +12,10 @@ type Props = ComponentProps<typeof Button> & {
 export function CreateRoomButton({ roomPrefix, ...props }: Props) {
     const router = useRouter();
 
-    const { roomSettings } = useContext(RoomSettingsContext);
+    const { roomDraft } = useContext(RoomDraftContext);
 
     const onRoomCreate = () => {
-        const name = roomSettings.roomName;
+        const name = roomDraft.roomName;
         router.push(`${roomPrefix}/${name}`);
     };
 

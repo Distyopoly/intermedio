@@ -1,31 +1,31 @@
-import { Editable, IconButton, HStack, Text } from "@chakra-ui/react";
+import { Editable, IconButton, HStack } from "@chakra-ui/react";
 import { LuCheck, LuPencilLine, LuX } from "react-icons/lu";
 import { HiOutlineRefresh } from "react-icons/hi";
 import { ComponentProps } from "react";
 
-import { Field } from "@/packages/ui-components/field";
-import { RoomSettingsContext } from "@app/providers";
+import { Field } from "@packages/ui-components/field";
+import { RoomDraftContext } from "../../model/room-draft.context";
 import { useContext } from "react";
 
 type Props = ComponentProps<typeof HStack>;
 
 export default function RoomName(props: Props) {
-    const { roomSettings, setRoomSettings } = useContext(RoomSettingsContext);
+    const { roomDraft, setRoomDraft } = useContext(RoomDraftContext);
 
     return (
         <Field
             label="Room Name"
         >
             <HStack gap={3} justifyContent="center" w="fit-content" {...props}>
-                <IconButton variant="ghost" size="xs" onClick={() => setRoomSettings({ type: "randomName" })}>
+                <IconButton variant="ghost" size="xs" onClick={() => setRoomDraft({ type: "randomName" })}>
                     <HiOutlineRefresh />
                 </IconButton>
 
                 <Editable.Root
-                    value={roomSettings.roomName}
+                    value={roomDraft.roomName}
                     placeholder="Room Name"
-                    onValueChange={(details) => setRoomSettings({ type: "setRoomName", payload: details.value })}
-                    onValueRevert={(details) => setRoomSettings({ type: "setRoomName", payload: details.value })}
+                    onValueChange={(details) => setRoomDraft({ type: "setRoomName", payload: details.value })}
+                    onValueRevert={(details) => setRoomDraft({ type: "setRoomName", payload: details.value })}
                 >
                     <Editable.Preview fontSize="lg" fontWeight="bold" />
                     <Editable.Input fontSize="lg" fontWeight="bold" />

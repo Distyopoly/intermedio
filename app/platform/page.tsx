@@ -1,6 +1,6 @@
 import { Highlight, Heading, VStack } from "@chakra-ui/react";
-import { RoomSettingsProvider } from "@/app/providers/room-settings-provider";
-import { SettingsDialog } from "@/pages/room/ui/settings";
+import { RoomDraftProvider } from "@features/manage-room";
+import { SettingsDialog } from "@features/manage-room";
 import { AbsoluteCenter } from "@chakra-ui/react";
 import { CreateRoomButton } from "@features/create-room";
 
@@ -24,10 +24,10 @@ export default function Home() {
           w="fit-content"
           padding={10}
         >
-          <RoomSettingsProvider>
+          <RoomDraftProvider>
             <SettingsDialog variant="ghost" size="2xl" />
             <CreateRoomButton roomPrefix="/platform/room" />
-          </RoomSettingsProvider>
+          </RoomDraftProvider>
         </VStack>
       </VStack>
     </AbsoluteCenter>
