@@ -1,5 +1,5 @@
 import { PropsWithChildren, use } from "react";
-import { RoomLayout as RoomLayoutComponent } from "@/pages/room/ui/room-layout";
+import { RoomLayout as RoomLayoutComponent } from "@pages/room";
 import { RoomProvider } from "@app/providers";
 
 type Props = PropsWithChildren<{
