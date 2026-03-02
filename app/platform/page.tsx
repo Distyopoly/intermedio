@@ -2,7 +2,7 @@ import { Highlight, Heading, VStack } from "@chakra-ui/react";
 import { RoomDraftProvider } from "@features/manage-room";
 import { SettingsDialog } from "@features/manage-room";
 import { AbsoluteCenter } from "@chakra-ui/react";
-import { CreateRoomButton } from "@features/manage-room/ui/create-room";
+import { CreateRoomButton } from "@features/manage-room";
 
 export default function Home() {
   return (
