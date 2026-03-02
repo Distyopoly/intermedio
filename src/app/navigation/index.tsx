@@ -6,8 +6,8 @@ import { NavItems } from "./NavItems";
 import { Branding } from "./ui/Branding";
 import { ComponentProps } from "react";
 import { HowTo } from "@features/how-to";
-import { UserMenu } from "@widgets/navigation/ui/user-menu";
-import { RoomInvite } from "@features/room-invite";
+import { UserMenu } from "@app/navigation/ui/user-menu";
+import { RoomInvite } from "@widgets/room-invite";
 
 type Props = ComponentProps<typeof Flex> & {};
 

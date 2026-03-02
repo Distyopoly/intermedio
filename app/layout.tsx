@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "@/app/providers";
-import { Navbar } from "@/widgets/navigation";
+import { Navbar } from "@app/navigation";
 import { Footer } from "@shared/ui/footer";
 import { Box } from "@chakra-ui/react";
 import { MainAreaBackground } from "@/packages/ui-patterns/background";
