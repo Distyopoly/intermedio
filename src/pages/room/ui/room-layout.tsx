@@ -6,7 +6,7 @@ import { PropsWithChildren, useState } from "react";
 import { ComponentProps } from "react";
 import { VideoView, ControlBar } from "@widgets/conference";
 import "@livekit/components-styles";
-import { RoomContextProvider } from "@app/providers";
+import { LiveKitRoomContextProvider } from "../model/livekit-room-context-provider";
 
 import { Text } from "@chakra-ui/react";
 
@@ -35,7 +35,7 @@ export const RoomLayout = ({ roomName, initialLayout, children, roomHeight = { b
 
             <ClientOnly fallback={<Spinner size="xl" />}>
                 <Box justifyContent="stretch" h={h} {...props}>
-                    <RoomContextProvider roomName={roomName}
+                    <LiveKitRoomContextProvider roomName={roomName}
                         loadingComponent={<Spinner size="xl" />}
                         errorComponent={<Text>Room Error</Text>}
                     >
@@ -55,7 +55,7 @@ export const RoomLayout = ({ roomName, initialLayout, children, roomHeight = { b
                                 {children}
                             </SplitterPanel>
                         </Splitter>
-                    </RoomContextProvider>
+                    </LiveKitRoomContextProvider>
                 </Box>
             </ClientOnly>
         );
