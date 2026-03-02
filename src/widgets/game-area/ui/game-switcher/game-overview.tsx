@@ -1,11 +1,11 @@
 "use client";
 
 import { useContext } from "react";
-import { RoomContext } from "@/app/providers";
+import { RoomMetadataContext } from "../../model/room-metadata";
 import { Text, VStack } from "@chakra-ui/react";
 
 export default function GameOverview() {
-    const { state } = useContext(RoomContext);
+    const { state } = useContext(RoomMetadataContext);
     const gameDerivation = state.gameDerivation;
 
     return (

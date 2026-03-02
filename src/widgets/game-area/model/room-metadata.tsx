@@ -16,7 +16,7 @@ export type RoomState = {
     gameDerivation: GameDerivation;
 }
 
-export type RoomContextType = {
+export type RoomMetadataContextType = {
     state: RoomState;
     dispatch: React.Dispatch<RoomAction>;
 }
@@ -26,10 +26,10 @@ const defaultGameDerivationSlug = "xo";
 
 const defaultGameDerivation: GameDerivation = gameDerivations[defaultGameDerivationSlug];
 
-export const RoomContext = createContext<RoomContextType>({
-    state: { 
+export const RoomMetadataContext = createContext<RoomMetadataContextType>({
+    state: {
         roomName: "",
-        gameDerivation: defaultGameDerivation 
+        gameDerivation: defaultGameDerivation
     },
     dispatch: () => { },
 })
@@ -42,15 +42,15 @@ function reducer(draft: RoomState, action: RoomAction) {
     }
 }
 
-export function RoomProvider({ children }: { children: React.ReactNode }) {
-    const [state, dispatch] = useImmerReducer(reducer, { 
+export function RoomMetadataContextProvider({ children }: { children: React.ReactNode }) {
+    const [state, dispatch] = useImmerReducer(reducer, {
         roomName: "",
-        gameDerivation: defaultGameDerivation 
+        gameDerivation: defaultGameDerivation
     });
-    
+
     return (
-        <RoomContext.Provider value={{ state, dispatch }}>
+        <RoomMetadataContext.Provider value={{ state, dispatch }}>
             {children}
-        </RoomContext.Provider>
+        </RoomMetadataContext.Provider>
     );
 }

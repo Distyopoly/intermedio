@@ -1,12 +1,12 @@
 "use client";
 import { HStack, For } from "@chakra-ui/react";
 import { ComponentProps, useContext } from "react";
-import { RoomContext } from "@app/providers";
+import { RoomMetadataContext } from "../../model/room-metadata";
 import { gameDerivations } from "@/games/game-list";
 import { RadioCardRoot, RadioCardItem } from "@/packages/ui-components/radio-card";
 
 export function GameSwitcher({ ...props }: ComponentProps<typeof RadioCardRoot>) {
-    const { state, dispatch } = useContext(RoomContext);
+    const { state, dispatch } = useContext(RoomMetadataContext);
 
     return (
         <RadioCardRoot
@@ -26,6 +26,6 @@ export function GameSwitcher({ ...props }: ComponentProps<typeof RadioCardRoot>)
                     )}
                 </For>
             </HStack>
-        </RadioCardRoot>  
+        </RadioCardRoot>
     );
 }
