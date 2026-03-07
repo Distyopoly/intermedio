@@ -7,5 +7,9 @@ type Props = PropsWithChildren<{
 
 export default function Layout({ children, params }: Props) {
     const concreteParams = use(params);
-    return <RoomLayout {...concreteParams} />;
+    return (
+        <RoomLayout {...concreteParams}>
+            {children}
+        </RoomLayout>
+    );
 }
