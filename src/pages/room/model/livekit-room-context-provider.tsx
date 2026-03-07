@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from 'react';
-import { RoomContext } from '@livekit/components-react';
+import { RoomContext, PreJoin, LocalUserChoices } from '@livekit/components-react';
 import { Room } from 'livekit-client';
 import { useEffect, useState } from 'react';
 import { PropsWithChildren } from 'react';
@@ -17,6 +17,7 @@ type Props = PropsWithChildren<{
 
 export function LiveKitRoomContextProvider({ children, roomName, errorComponent, loadingComponent }: Props) {
   const [room] = useState(() => new Room({}));
+  const [userChoices, setUserChoices] = useState<LocalUserChoices | undefined>(undefined);
   const router = useRouter();
 
   const { token, error, isLoading } = useLiveKitToken(roomName);
@@ -25,13 +26,26 @@ export function LiveKitRoomContextProvider({ children, roomName, errorComponent,
 
   // You can manage room connection lifecycle here
   useEffect(() => {
-    if (!token) return;
+    if (!token || !userChoices) return;
     if (!livekit_url) {
       console.error("NEXT_PUBLIC_LIVEKIT_URL is not defined");
       return;
     }
 
-    room.connect(livekit_url, token).catch((err) => {
+    room.connect(livekit_url, token).then(async () => {
+      // Apply user choices after connection
+      if (userChoices.videoEnabled) {
+        await room.localParticipant.setCameraEnabled(true, { deviceId: userChoices.videoDeviceId });
+      } else {
+        await room.localParticipant.setCameraEnabled(false);
+      }
+
+      if (userChoices.audioEnabled) {
+        await room.localParticipant.setMicrophoneEnabled(true, { deviceId: userChoices.audioDeviceId });
+      } else {
+        await room.localParticipant.setMicrophoneEnabled(false);
+      }
+    }).catch((err) => {
       // "Client initiated disconnect" is expected when unmounting/re-mounting in Strict Mode
       if (err.message !== 'Client initiated disconnect') {
         console.error('Failed to connect to LiveKit:', err);
@@ -45,7 +59,7 @@ export function LiveKitRoomContextProvider({ children, roomName, errorComponent,
     return () => {
       room.disconnect();
     };
-  }, [room, token]);
+  }, [room, token, userChoices, router]);
 
   if (isLoading) {
     return (
@@ -53,15 +67,27 @@ export function LiveKitRoomContextProvider({ children, roomName, errorComponent,
     );
   }
 
-  if (error) {
+  if (error || (!token && !isLoading)) {
     return (
       errorComponent
     );
   }
 
-  if (!token) {
+  if (!userChoices) {
     return (
-      errorComponent
+      // FIXME: refactor prejoin and add room details
+      <ClientOnly fallback={loadingComponent}>
+        <div data-lk-theme="default" style={{ height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <PreJoin
+            onSubmit={(values) => setUserChoices(values)}
+            defaults={{
+              username: "", // Could be pre-filled from session if passed as prop
+              videoEnabled: true,
+              audioEnabled: true,
+            }}
+          />
+        </div>
+      </ClientOnly>
     );
   }
 
