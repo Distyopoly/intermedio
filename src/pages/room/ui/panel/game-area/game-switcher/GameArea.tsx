@@ -1,7 +1,7 @@
 "use client";
 import { HStack, For } from "@chakra-ui/react";
 import { ComponentProps, useContext } from "react";
-import { RoomMetadataContext } from "../../model/room-metadata";
+import { RoomMetadataContext } from "../../../../model/room-metadata.context";
 import { gameDerivations } from "@/games/game-list";
 import { RadioCardRoot, RadioCardItem } from "@/packages/ui-components/radio-card";
 

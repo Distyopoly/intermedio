@@ -1,6 +1,6 @@
 import { AbsoluteCenter, Box, Center, Text } from "@chakra-ui/react";
 import { ComponentProps } from "react";
-import { VideoGrid } from "./video-layout/video-grid";
+import { VideoGrid } from "./video-layout/VideoGrid";
 
 type Props = ComponentProps<typeof Box>;
 

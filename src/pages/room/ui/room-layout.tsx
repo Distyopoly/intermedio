@@ -2,13 +2,15 @@
 
 import { Splitter, SplitterPanel, SplitterResizeTrigger } from "@packages/ui-components/splitter";
 import { Box, ClientOnly, Spinner, useBreakpointValue } from "@chakra-ui/react";
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useContext, useState } from "react";
 import { ComponentProps } from "react";
-import { VideoView, ControlBar } from "@pages/room/conference";
+import { VideoView } from "./panel/conference-area/VideoArea";
+import { ControlBar } from "./panel/control-panel/ControlPanel";
 import "@livekit/components-styles";
 import { LiveKitRoomContextProvider } from "../model/livekit-room-context-provider";
 
 import { Text } from "@chakra-ui/react";
+import { RoomMetadataContext } from "../model/room-metadata.context";
 
 type LayoutType = "split" | "game-only";
 
@@ -19,9 +21,16 @@ type Props = ComponentProps<typeof Box> & PropsWithChildren<{
 }>
 
 
-export const RoomLayout = ({ roomName, initialLayout, children, roomHeight = { base: "100%", md: "100%" }, ...props }: Props) => {
+export const RoomLayoutInner = ({ roomName, initialLayout, children, roomHeight = { base: "100%", md: "100%" }, ...props }: Props) => {
 
-    const [layout, setLayout] = useState<LayoutType>(initialLayout);
+    const context = useContext(RoomMetadataContext);
+    if (!context) {
+        return null;
+    }
+
+    const { state } = context;
+    const layout = state.roomBehaviour;
+
     const orientation = useBreakpointValue({ base: "vertical", md: "horizontal" }) as "vertical" | "horizontal";
     const h = useBreakpointValue(roomHeight);
 
@@ -30,7 +39,7 @@ export const RoomLayout = ({ roomName, initialLayout, children, roomHeight = { b
 
     const controlbarHeight = "8vh";
 
-    if (layout === "split") {
+    if (layout === "video") {
         return (
 
             <ClientOnly fallback={<Spinner size="xl" />}>
@@ -61,7 +70,7 @@ export const RoomLayout = ({ roomName, initialLayout, children, roomHeight = { b
         );
     }
 
-    if (layout === "game-only") {
+    if (layout === "no-video") {
         return (
             <ClientOnly>
                 <Box h={h} {...props}>

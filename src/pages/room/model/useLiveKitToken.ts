@@ -7,11 +7,11 @@ import ky from "ky";
 function tokenFetcher(roomName: string) {
     const url = `/api/livekit/token?roomName=${roomName}`;
 
-    return ky.get(url, {}).json<{token: string}>();
+    return ky.get(url, {}).json<{ token: string }>();
 }
 
 export function useLiveKitToken(roomName?: string) {
-    
+
     const { data, error, isLoading } = useSWR(
         roomName ? `/api/livekit/token?roomName=${roomName}` : null,
         tokenFetcher,

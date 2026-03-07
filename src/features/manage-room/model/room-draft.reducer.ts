@@ -1,18 +1,17 @@
+import { RoomBehaviour } from "./RoomBehaviour";
 import { randomRoomName } from "@shared/lib/generators";
 
 
-export type LayoutMode = "no-video" | "video" | null;
-
 export type RoomDraftState = {
     roomName: string;
-    layoutMode: LayoutMode;
+    layoutMode: RoomBehaviour;
 }
 
 export type RoomDraftAction =
     | { type: "randomName" }
     | { type: "setRoomName"; payload: string }
-    | { type: "setLayoutMode"; payload: LayoutMode };
-    
+    | { type: "setLayoutMode"; payload: RoomBehaviour };
+
 export function roomDraftReducer(draft: RoomDraftState, action: RoomDraftAction) {
     switch (action.type) {
         case "randomName":

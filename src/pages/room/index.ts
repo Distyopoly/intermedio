@@ -1,2 +1,2 @@
-export { RoomLayout } from "./ui/room-layout";
+export { RoomLayout } from "./ui/RoomLayout";
 export { RoomPage } from "./ui/RoomPage";

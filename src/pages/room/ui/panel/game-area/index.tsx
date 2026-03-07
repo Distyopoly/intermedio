@@ -1,6 +1,6 @@
 import { VStack, Text, Button } from "@chakra-ui/react";
-import GameOverview from "./game-switcher/game-overview";
-import { GameSwitcher } from "./game-switcher";
+import GameOverview from "./game-switcher/GameOverview";
+import { GameSwitcher } from "./game-switcher/GameArea";
 
 export function GameArea() {
 

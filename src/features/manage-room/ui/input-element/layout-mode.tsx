@@ -5,7 +5,7 @@ import { TbCrosshair } from "react-icons/tb";
 import { PiVideoConferenceLight } from "react-icons/pi";
 import { ComponentProps } from "react";
 import { RoomDraftContext } from "../../model/room-draft.context";
-import { LayoutMode } from "../../model/room-draft.reducer";
+import { RoomBehaviour } from "../../model/RoomBehaviour";
 import { useContext } from "react";
 
 type Props = ComponentProps<typeof RadioCardRoot>;
@@ -16,7 +16,7 @@ export default function LayoutModeRadio({ ...props }: Props) {
     return (
         <RadioCardRoot
             value={roomDraft.layoutMode}
-            onValueChange={(value) => setRoomDraft({ type: "setLayoutMode", payload: value.value as LayoutMode })}
+            onValueChange={(value) => setRoomDraft({ type: "setLayoutMode", payload: value.value as RoomBehaviour })}
             orientation="vertical"
             align="center"
             gap={5}
