@@ -4,13 +4,13 @@ import { randomRoomName } from "@shared/lib/generators";
 
 export type RoomDraftState = {
     roomName: string;
-    layoutMode: RoomBehaviour;
+    roomBehaviour: RoomBehaviour;
 }
 
 export type RoomDraftAction =
     | { type: "randomName" }
     | { type: "setRoomName"; payload: string }
-    | { type: "setLayoutMode"; payload: RoomBehaviour };
+    | { type: "setRoomBehaviour"; payload: RoomBehaviour };
 
 export function roomDraftReducer(draft: RoomDraftState, action: RoomDraftAction) {
     switch (action.type) {
@@ -20,8 +20,8 @@ export function roomDraftReducer(draft: RoomDraftState, action: RoomDraftAction)
         case "setRoomName":
             draft.roomName = action.payload;
             return;
-        case "setLayoutMode":
-            draft.layoutMode = action.payload;
+        case "setRoomBehaviour":
+            draft.roomBehaviour = action.payload;
             return;
     }
 }

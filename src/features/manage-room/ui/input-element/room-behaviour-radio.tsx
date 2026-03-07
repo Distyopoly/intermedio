@@ -10,19 +10,19 @@ import { useContext } from "react";
 
 type Props = ComponentProps<typeof RadioCardRoot>;
 
-export default function LayoutModeRadio({ ...props }: Props) {
+export default function RoomBehaviourRadio({ ...props }: Props) {
     const { roomDraft, setRoomDraft } = useContext(RoomDraftContext);
 
     return (
         <RadioCardRoot
-            value={roomDraft.layoutMode}
-            onValueChange={(value) => setRoomDraft({ type: "setLayoutMode", payload: value.value as RoomBehaviour })}
+            value={roomDraft.roomBehaviour}
+            onValueChange={(value) => setRoomDraft({ type: "setRoomBehaviour", payload: value.value as RoomBehaviour })}
             orientation="vertical"
             align="center"
             gap={5}
             {...props}
         >
-            <RadioCardLabel>Layout Mode</RadioCardLabel>
+            <RadioCardLabel>Room Behaviour</RadioCardLabel>
             <HStack w="fit-content" h="fit-content" minW={{ base: "full", md: 400 }} alignItems="stretch">
                 <RadioCardItem key="no-video" value="no-video" label="External Conference"
                     icon={<Icon fontSize="2xl"><TbCrosshair /></Icon>} indicator={null} />

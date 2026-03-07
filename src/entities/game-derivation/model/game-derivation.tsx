@@ -1,3 +1,5 @@
+import { gameDerivations } from "@/games/game-list";
+
 export type GameDerivation = {
     /* Concrete game blueprint + metadata used internally. */ 
 
@@ -5,4 +7,21 @@ export type GameDerivation = {
     name: string;
     description: string;
     coverArtSrc: string;
+}
+
+
+// ==========CRUD==============
+
+const defaultGameDerivationSlug = "xo";
+
+export function listGameDerivations(): GameDerivation[] {
+    return Object.values(gameDerivations);
+}
+
+export function getGameDerivation(slug: string): GameDerivation {
+    return gameDerivations[slug];
+}
+
+export function getDefaultGameDerivation(): GameDerivation {
+    return gameDerivations[defaultGameDerivationSlug];
 }

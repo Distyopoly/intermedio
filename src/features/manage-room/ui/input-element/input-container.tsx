@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import RoomName from "./room-name";
-import LayoutModeRadio from "./layout-mode";
+import LayoutModeRadio from "./room-behaviour-radio";
 import { ComponentProps } from "react";
 
 type Props = ComponentProps<typeof Box>;

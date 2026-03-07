@@ -1,6 +1,8 @@
 import { PropsWithChildren } from "react";
 import { RoomLayoutInner } from "./room-layout";
 import { RoomMetadataContextProvider } from "../model/room-metadata.context";
+import { getDefaultGameDerivation } from "@entities/game-derivation";
+import { RoomMetadataState } from "../model/room-metadata.reducer";
 
 type Props = PropsWithChildren<{
     roomName: string;
@@ -13,9 +15,15 @@ export function RoomLayout({ children, roomName }: Props) {
         md: "calc(100vh - 16vh)"
     };
 
+    const roomMetadata = {
+        roomName,
+        roomBehaviour: "video",
+        gameDerivation: getDefaultGameDerivation()
+    } satisfies RoomMetadataState;
+
     return (
-        <RoomMetadataContextProvider>
-            <RoomLayoutInner roomName={roomName} initialLayout="split" w="100%" roomHeight={roomHeight} >
+        <RoomMetadataContextProvider roomMetadata={roomMetadata} >
+            <RoomLayoutInner w="100%" roomHeight={roomHeight} >
                 {children}
             </RoomLayoutInner>
         </RoomMetadataContextProvider>

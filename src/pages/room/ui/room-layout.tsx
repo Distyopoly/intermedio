@@ -12,16 +12,12 @@ import { LiveKitRoomContextProvider } from "../model/livekit-room-context-provid
 import { Text } from "@chakra-ui/react";
 import { RoomMetadataContext } from "../model/room-metadata.context";
 
-type LayoutType = "split" | "game-only";
-
 type Props = ComponentProps<typeof Box> & PropsWithChildren<{
-    roomName: string;
-    initialLayout: LayoutType;
     roomHeight: { base: string, md: string };
 }>
 
 
-export const RoomLayoutInner = ({ roomName, initialLayout, children, roomHeight = { base: "100%", md: "100%" }, ...props }: Props) => {
+export const RoomLayoutInner = ({ children, roomHeight = { base: "100%", md: "100%" }, ...props }: Props) => {
 
     const context = useContext(RoomMetadataContext);
     if (!context) {
@@ -44,7 +40,7 @@ export const RoomLayoutInner = ({ roomName, initialLayout, children, roomHeight 
 
             <ClientOnly fallback={<Spinner size="xl" />}>
                 <Box justifyContent="stretch" h={h} {...props}>
-                    <LiveKitRoomContextProvider roomName={roomName}
+                    <LiveKitRoomContextProvider roomName={state.roomName}
                         loadingComponent={<Spinner size="xl" />}
                         errorComponent={<Text>Room Error</Text>}
                     >

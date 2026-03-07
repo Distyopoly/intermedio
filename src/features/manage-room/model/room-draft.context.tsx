@@ -16,7 +16,7 @@ export type RoomDraftContextType = {
 const defaultRoomDraftContext: RoomDraftContextType = {
     roomDraft: {
         roomName: randomRoomName(),
-        layoutMode: "no-video",
+        roomBehaviour: "no-video",
     },
     setRoomDraft: () => { },
 }
