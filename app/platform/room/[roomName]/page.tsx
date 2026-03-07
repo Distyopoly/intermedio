@@ -1,6 +1,1 @@
-import { GameArea } from "@widgets/game-area";
-
-export default function Page() {
-
-    return <GameArea />;
-}
+export { RoomPage as default } from "@pages/room";
