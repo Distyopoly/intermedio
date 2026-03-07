@@ -1,6 +1,6 @@
 import { PropsWithChildren, use } from "react";
 import { RoomLayout as RoomLayoutComponent } from "@pages/room";
-import { RoomProvider } from "@widgets/game-area";
+import { RoomProvider } from "@pages/room/game-area";
 
 type Props = PropsWithChildren<{
     params: Promise<{ roomName: string }>;

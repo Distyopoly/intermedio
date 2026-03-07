@@ -1,10 +1,10 @@
 "use client";
 
-import { Splitter, SplitterPanel, SplitterResizeTrigger } from "@/packages/ui-components/splitter";
+import { Splitter, SplitterPanel, SplitterResizeTrigger } from "@packages/ui-components/splitter";
 import { Box, ClientOnly, Spinner, useBreakpointValue } from "@chakra-ui/react";
 import { PropsWithChildren, useState } from "react";
 import { ComponentProps } from "react";
-import { VideoView, ControlBar } from "@widgets/conference";
+import { VideoView, ControlBar } from "@pages/room/conference";
 import "@livekit/components-styles";
 import { LiveKitRoomContextProvider } from "../model/livekit-room-context-provider";
 

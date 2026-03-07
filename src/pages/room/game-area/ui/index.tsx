@@ -14,3 +14,4 @@ export function GameArea() {
         </VStack>
     );
 }
+ 
