@@ -7,7 +7,7 @@ import { ColorModeButton } from "@/packages/ui-components/chakra/color-mode";
 import { ComponentProps } from "react";
 import { VStack } from "@chakra-ui/react";
 import { HowTo } from "@features/how-to";
-
+import { RoomInvite } from "@features/manage-room";
 
 type Props = ComponentProps<typeof DrawerTrigger> & {};
 
@@ -30,6 +30,7 @@ export function NavbarDrawer({ ...props }: Props) {
                         </DrawerBody>
                         <DrawerFooter justifyContent="center">
                             <VStack gap={6}>
+                                <RoomInvite />
                                 <HowTo size="xl" px={18} />
                                 <ColorModeButton />
                             </VStack>
