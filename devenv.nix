@@ -50,5 +50,6 @@ in
     lserver.exec = "NEXTAUTH_URL=${ZROK_URL} pnpm run dev --port ${config.env.ZROK_PORT}";
     server.exec = "NEXTAUTH_URL=${ZROK_URL} pnpm run dev --port ${config.env.ZROK_PORT}";
     tunnel.exec = "zrok share reserved ${config.env.ZROK_RESERVED_NAME} --headless";
+    ter.exec = "alacritty -e ${pkgs.zellij}/bin/zellij --layout ${./nix/zellij/layout.kdl}";
   };
 }

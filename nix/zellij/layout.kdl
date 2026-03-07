@@ -1,0 +1,20 @@
+layout {
+    pane stacked=true {
+        pane command="tunnel"
+
+        pane name="chakra"
+
+        pane command="server" {
+            start_suspended true
+        }
+
+
+        pane command="lazygit" expanded=true
+        pane name="other"
+
+    }
+
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+}
