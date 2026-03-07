@@ -1,8 +1,8 @@
 import { PropsWithChildren } from "react";
 import { RoomLayoutInner } from "./room-layout";
-import { RoomMetadataContextProvider } from "../model/room-metadata.context";
+import { RoomMetadataContextProvider } from "@features/manage-room";
 import { getDefaultGameDerivation } from "@entities/game-derivation";
-import { RoomMetadataState } from "../model/room-metadata.reducer";
+import { RoomMetadataState } from "@features/manage-room";
 
 type Props = PropsWithChildren<{
     roomName: string;

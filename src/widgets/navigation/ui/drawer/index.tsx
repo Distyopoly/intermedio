@@ -30,7 +30,6 @@ export function NavbarDrawer({ ...props }: Props) {
                         </DrawerBody>
                         <DrawerFooter justifyContent="center">
                             <VStack gap={6}>
-                                <RoomInvite />
                                 <HowTo size="xl" px={18} />
                                 <ColorModeButton />
                             </VStack>

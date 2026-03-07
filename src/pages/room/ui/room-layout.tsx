@@ -10,7 +10,7 @@ import "@livekit/components-styles";
 import { LiveKitRoomContextProvider } from "../model/livekit-room-context-provider";
 
 import { Text } from "@chakra-ui/react";
-import { RoomMetadataContext } from "../model/room-metadata.context";
+import { RoomMetadataContext } from "@features/manage-room";
 
 type Props = ComponentProps<typeof Box> & PropsWithChildren<{
     roomHeight: { base: string, md: string };

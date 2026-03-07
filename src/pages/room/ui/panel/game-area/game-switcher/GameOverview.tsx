@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { RoomMetadataContext } from "../../../../model/room-metadata.context";
+import { RoomMetadataContext } from "@features/manage-room";
 import { Text, VStack } from "@chakra-ui/react";
 
 export default function GameOverview() {

@@ -32,7 +32,6 @@ export function Navbar({ ...props }: Props) {
             </Flex>
             <Spacer />
             <Flex display={{ base: "none", md: "flex" }} gap="7" alignItems="center">
-                <RoomInvite />
                 <HowTo />
             </Flex>
             <UserMenu ml={50} />
