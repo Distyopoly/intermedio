@@ -2,7 +2,7 @@ import { Alert } from "@/packages/ui-components/alert";
 import { Flex, Text, VStack } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 import { LoginButton } from "./login-button";
-import { AuthenticatedGuardRedirect } from "./auth-guard-client";
+import { AuthenticatedGuardServer } from "./auth-guard-server";
 
 type Props = PropsWithChildren<{
     message?: string;
@@ -38,6 +38,6 @@ function LoginRequiredComponent({ message }: { message?: string }) {
     );
 }
 
-export async function LoginRequired({ children }: Props) {
-    return <AuthenticatedGuardRedirect>{children}</AuthenticatedGuardRedirect>
+export async function LoginRequired({ children, message }: Props) {
+    return <AuthenticatedGuardServer notAuthenticatedComponent={<LoginRequiredComponent message={message} />}>{children}</AuthenticatedGuardServer>
 }

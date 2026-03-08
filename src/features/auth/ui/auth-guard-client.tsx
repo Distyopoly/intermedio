@@ -6,20 +6,15 @@ import { useSession } from "next-auth/react";
 
 type Props = PropsWithChildren<{
     loadingComponent?: React.ReactNode;
-    notAuthenticatedComponent?: React.ReactNode;
 }>;
 
-export function AuthenticatedGuardClient({ children, loadingComponent, notAuthenticatedComponent }: Props) {
-    const session = useSession();
+export function AuthenticatedGuardRedirect({ children, loadingComponent }: Props) {
+    const session = useSession({ required: true });
     let loading = loadingComponent || <Spinner size="xl" />;
 
     if (session.status === "loading") {
         return loading;
     }
-
-    if (!session.data?.user) {
-        return notAuthenticatedComponent || null;
-    };
 
     return <>{children}</>;
 }
