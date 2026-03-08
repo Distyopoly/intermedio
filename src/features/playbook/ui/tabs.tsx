@@ -1,6 +1,6 @@
 "use client";
 
-import { ClientOnly, Portal, Tabs, useBreakpointValue } from "@chakra-ui/react";
+import { ClientOnly, Text, Tabs, useBreakpointValue } from "@chakra-ui/react";
 import { UsingCards } from "./tab/using-cards";
 import { OverviewTab } from "./tab/overview";
 
@@ -17,16 +17,21 @@ export function HowToTabs() {
             >
                 <Tabs.List>
                     <Tabs.Trigger value="quick-peak">Overview</Tabs.Trigger>
-                    <Tabs.Trigger value="room">Creating Room</Tabs.Trigger>
+                    <Tabs.Trigger value="room">Game Room</Tabs.Trigger>
                     <Tabs.Trigger value="cards">Using Cards</Tabs.Trigger>
-                    <Tabs.Trigger value="boards">Using Boards</Tabs.Trigger>
+                    <Tabs.Trigger value="boards">Using a Board</Tabs.Trigger>
                     <Tabs.Trigger value="rules">Rules</Tabs.Trigger>
                 </Tabs.List>
                 <Tabs.Content value="quick-peak">
                     <OverviewTab />
                 </Tabs.Content>
                 <Tabs.Content value="room">
-                    Placeholder
+                    <Text> 
+                        <br/>
+                        sketch: 
+                        <br/>
+                        CreateRoom button or indicator that you are already in a room and invite your friends.
+                    </Text>
                 </Tabs.Content>
                 <Tabs.Content value="cards" w="full" flex="1">
                     <UsingCards />
