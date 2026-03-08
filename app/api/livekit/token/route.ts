@@ -8,18 +8,22 @@ export async function GET(request: NextRequest) {
     const session = await getServerSession(authOptions);
     console.log("Token API session:", session);
 
+    // isAuthorized?
     if (!session?.user?.name) {
         return Response.json({ error: "Unauthorized", debug: session }, { status: 401 });
     }
 
+    // is the RoomName parameter present?
     const { searchParams } = new URL(request.url);
     const roomName = searchParams.get("roomName");
     if (!roomName) {
         return Response.json({ error: "Missing roomName parameter" }, { status: 400 });
     }
 
+    // getUserMetadata
     const participantName = session.user.name;
 
+    // loadlivekit credentials
     const apiKey = process.env.LIVEKIT_API_KEY;
     const apiSecret = process.env.LIVEKIT_API_SECRET;
     const livekitUrl = process.env.LIVEKIT_URL;
@@ -28,10 +32,12 @@ export async function GET(request: NextRequest) {
         return Response.json({ error: "Server misconfigured" }, { status: 500 });
     }
 
+    // search for room
     const roomService = new RoomServiceClient(livekitUrl, apiKey, apiSecret);
     const rooms = await roomService.listRooms([roomName]);
     let room = rooms.find(r => r.name === roomName);
 
+    // create room if it doesn't exist
     if (!room) {
         // Auto-create room if it doesn't exist, making this user the creator
         room = await roomService.createRoom({
@@ -45,6 +51,7 @@ export async function GET(request: NextRequest) {
         });
     }
 
+    // check if user is GM
     let isGM = false;
     if (room.metadata) {
         try {
@@ -55,13 +62,14 @@ export async function GET(request: NextRequest) {
         }
     }
 
+    // create token
     const at = new AccessToken(apiKey, apiSecret, {
         identity: participantName,
         name: participantName,
     });
     at.addGrant({ roomJoin: true, room: roomName, roomAdmin: isGM });
 
+    // return token
     const token = await at.toJwt();
-
     return Response.json({ token });
 }
