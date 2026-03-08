@@ -47,6 +47,7 @@ in
     qr.exec = "qrencode -t ansiutf8 -o - '${ZROK_URL}'";
     uri.exec = "echo '${ZROK_URL}'";
     curi.exec = "wl-copy '${ZROK_URL}'";
+    o.exec = "chromium ${ZROK_URL}";
     lserver.exec = "NEXTAUTH_URL=${ZROK_URL} pnpm run dev --port ${config.env.ZROK_PORT}";
     server.exec = "NEXTAUTH_URL=${ZROK_URL} pnpm run dev --port ${config.env.ZROK_PORT}";
     tunnel.exec = "zrok share reserved ${config.env.ZROK_RESERVED_NAME} --headless";
