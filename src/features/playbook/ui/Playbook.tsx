@@ -9,14 +9,14 @@ type Props = ComponentProps<typeof Button> & {};
 export function Playbook({ ...props }: Props) {
 
     return (
-        <DialogRoot size={{ mdDown: "full", md: "lg" }}>
+        <DialogRoot size={{ mdDown: "full", md: "xl" }}>
             <DialogTrigger asChild>
                 <Button size="lg" variant="subtle" aria-label="Playbook" px={2} {...props}>Playbook<GiBookmarklet /></Button>
             </DialogTrigger>
-            <DialogContent h="50vh">
+            <DialogContent>
                 <DialogCloseTrigger />
                 <DialogHeader letterSpacing="wide" fontSize="lg" fontWeight="bold">
-                    Distyopoly Playbook
+                    Playbook
                 </DialogHeader>
                 <DialogBody>
                     <HowToTabs />

@@ -12,11 +12,11 @@ export function HowToTabs() {
             <Tabs.Root
                 orientation={orientation}
                 defaultValue="quick-peak"
-                h="full"
+                h="60vh"
                 w="full"
             >
                 <Tabs.List>
-                    <Tabs.Trigger value="quick-peak">Quick Peak</Tabs.Trigger>
+                    <Tabs.Trigger value="quick-peak">Overview</Tabs.Trigger>
                     <Tabs.Trigger value="room">Creating Room</Tabs.Trigger>
                     <Tabs.Trigger value="cards">Using Cards</Tabs.Trigger>
                     <Tabs.Trigger value="boards">Using Boards</Tabs.Trigger>
