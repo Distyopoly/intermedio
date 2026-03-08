@@ -23,9 +23,11 @@ export const RoomInviteModalContent = () => {
                 </InputGroup>
             </ClipboardRoot>
 
+
             <Text textStyle="lg" >
-                <b>{name}</b> szoba
+                Küldj Meghívót Barátaidnak
             </Text>
+
             <HStack align="center" flex={1} p="2" >
                 <QrCode value={`sms:?body=${inviteMessage}`} size="lg"/>
                 <ClipboardRoot flex={1} value={inviteMessage}>
