@@ -14,6 +14,11 @@ export function ChatDrawer() {
     return (
         <DrawerRoot
             open={!!widget.state?.showChat}
+            onOpenChange={(e) => {
+                if (!e.open && widget.dispatch) {
+                    widget.dispatch({ msg: "hide_chat" });
+                }
+            }}
             size="md"
             closeOnInteractOutside={true}
             lazyMount
