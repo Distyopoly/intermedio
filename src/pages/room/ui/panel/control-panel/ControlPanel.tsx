@@ -1,24 +1,28 @@
-import { Button, HStack } from "@chakra-ui/react";
-import { DisconnectButton, TrackToggle, ChatToggle, StartMediaButton } from "@livekit/components-react";
-import { Track } from "livekit-client";
 import { ComponentProps } from "react";
-import { RoomInvite } from "@features/manage-room";
+import { ToggleTip } from "@packages/ui-components/chakra/toggle-tip";
+import { FaChevronDown } from "react-icons/fa";
+import { MainRow } from "./MainRow";
+import { SecondaryRow } from "./SecondaryRow";
+import { VStack } from "@chakra-ui/react";
 
-type Props = ComponentProps<typeof HStack>;
+type Props = ComponentProps<typeof VStack>;
 
-export function ControlBar(props: Props) {
+export function ControlPanel(props: Props) {
     return (
-        <HStack justifyContent="center" {...props}>
-            <RoomInvite />
-            <TrackToggle source={Track.Source.Microphone}> Microphone</TrackToggle>
-            <TrackToggle source={Track.Source.Camera}> Camera</TrackToggle>
+        <VStack {...props} layerStyle="fill.solid" wrap="nowrap">
+            <MainRow
+                justifyContent="center" w="full"
+                secondRowToggle={
+                    <ToggleTip portalled showArrow content={
+                        // TODO: make this a modal
+                        <SecondaryRow justifyContent="center" w="full" layerStyle="fill.solid"/>
+                    }>
+                        <FaChevronDown />
+                    </ToggleTip>
+                } />
+
+
             {/* {isGameMaster && <Button onClick={() => restartMatch()}>Restart Match</Button>} */}
-            <ChatToggle>
-                Chat
-            </ChatToggle>
-            <StartMediaButton label="Click to allow media playback" />
-            <Button variant="solid">Change Game</Button>
-            <DisconnectButton>Leave Room</DisconnectButton>
-        </HStack>
+        </VStack>
     );
 }

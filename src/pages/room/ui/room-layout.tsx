@@ -5,7 +5,7 @@ import { Box, ClientOnly, Spinner, useBreakpointValue, Text, Flex } from "@chakr
 import { PropsWithChildren, useContext, useState } from "react";
 import { ComponentProps } from "react";
 import { VideoView } from "./panel/conference-area/VideoArea";
-import { ControlBar } from "./panel/control-panel/ControlPanel";
+import { ControlPanel } from "./panel/control-panel/ControlPanel";
 import "@livekit/components-styles";
 import { LiveKitRoomContextProvider } from "../model/livekit-room-context-provider";
 
@@ -44,7 +44,7 @@ export const RoomLayoutInner = ({ children, roomHeight = { base: "100%", md: "10
                         loadingComponent={<Spinner size="xl" />}
                         errorComponent={<Text>Room Error</Text>}
                     >
-                        <ControlBar h={controlbarHeight} w="100vw" justifyContent="center" alignItems="center"
+                        <ControlPanel h={controlbarHeight} w="100vw" justifyContent="center" alignItems="center"
                             gap={4} wrap="wrap"
                         />
                         <Splitter flex="1" orientation={orientation} maxH={`calc(${h} - ${controlbarHeight})`}
