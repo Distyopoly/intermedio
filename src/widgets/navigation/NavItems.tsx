@@ -23,7 +23,7 @@ export function NavItems({ itemProps, ...props }: Props) {
 
 const items = [
     { name: "First Timer?", href: "/" },
-    { name: "Games", href: "/games" },
-    { name: "Play", href: "/platform" },
+    { name: "Our Games", href: "/games" },
+    { name: "Start Playing", href: "/platform" },
     { name: "Roadmap", href: "/roadmap-voting" },
 ]
