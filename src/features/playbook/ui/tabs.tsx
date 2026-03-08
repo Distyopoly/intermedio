@@ -2,7 +2,7 @@
 
 import { ClientOnly, Portal, Tabs, useBreakpointValue } from "@chakra-ui/react";
 import { UsingCards } from "./tab/using-cards";
-import { QuickPeak } from "./tab/quick-peak";
+import { OverviewTab } from "./tab/overview";
 
 export function HowToTabs() {
     const orientation = useBreakpointValue({ base: "horizontal", md: "vertical" }) satisfies "vertical" | "horizontal" | undefined;
@@ -23,7 +23,7 @@ export function HowToTabs() {
                     <Tabs.Trigger value="rules">Rules</Tabs.Trigger>
                 </Tabs.List>
                 <Tabs.Content value="quick-peak">
-                    <QuickPeak />
+                    <OverviewTab />
                 </Tabs.Content>
                 <Tabs.Content value="room">
                     Placeholder

@@ -2,7 +2,7 @@ import { Text, FieldHelperText, FieldLabel, FieldRoot, Separator, VStack, HStack
 import { QrCode } from "@packages/ui-components/chakra/qr-code";
 import { Link } from "@packages/ui-components/link";
 
-export function QuickPeak() {
+export function OverviewTab() {
     const poneToolLink = `${window.location.origin}/phone-tool`
     const tutorialLink = `${window.location.origin}/tutorial`
 
@@ -37,10 +37,17 @@ export function QuickPeak() {
                 <QrCode value={poneToolLink} size="md" />
                 <Text lineHeight="taller" py={2} fontSize="md">
                     Browse this playbook on your phone! <br />
-                    <b>It can also be your command center if your a GM.</b> <br />
+                    It can also be your <b>command center</b> if you are a GM. <br />
                     Use your phone as a temporary card deck.
                 </Text>
+
             </HStack>
+
+            <Separator my={4} />
+
+            <Text>
+                GM = Game Master
+            </Text>
         </VStack>
     );
 }
