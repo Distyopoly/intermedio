@@ -6,7 +6,7 @@ import { GiBookmarklet } from "react-icons/gi";
 
 type Props = ComponentProps<typeof Button> & {};
 
-export function HowTo({ ...props }: Props) {
+export function Playbook({ ...props }: Props) {
 
     return (
         <DialogRoot size={{ mdDown: "full", md: "lg" }}>

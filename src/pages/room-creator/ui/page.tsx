@@ -1,5 +1,5 @@
 import { AbsoluteCenter, Heading, VStack, Highlight } from "@chakra-ui/react";
-import { HowTo } from "@features/how-to";
+import { Playbook } from "@features/playbook";
 import { CreateRoomButton, RoomDraftProvider, SettingsDialog } from "@features/manage-room";
 
 export function RoomCreatorPage() {
@@ -23,7 +23,7 @@ export function RoomCreatorPage() {
                     <RoomDraftProvider>
                         <SettingsDialog variant="ghost" size="2xl" />
                         <CreateRoomButton roomPrefix="/platform/room" />
-                        <HowTo variant="surface" />
+                        <Playbook variant="surface" />
                     </RoomDraftProvider>
                 </VStack>
             </VStack>
