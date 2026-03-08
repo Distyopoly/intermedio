@@ -1,10 +1,15 @@
-import { useContext } from "react"
-import { RoomMetadataContext } from "../../model/room-metadata.context"
+import { ComponentProps } from "react"
 import { Button } from "@chakra-ui/react"
 import { useRoomInfo } from "../../model/useRoomInfo"
 
-export const RoomInviteButton = () => {
+type Props = ComponentProps<typeof Button> & {};
+
+export const RoomInviteButton = ({ ...props }: Props) => {
     const { name } = useRoomInfo();
 
-    return (<Button variant="outline" colorPalette="red">room: {name}</Button>)
+    if (name.length === 0) {
+        return null;
+    }
+
+    return (<Button {...props} variant="outline" colorPalette="red">room: {name}</Button>)
 }
