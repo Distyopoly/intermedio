@@ -1,4 +1,4 @@
-import { HStack } from "@chakra-ui/react";
+import { Button, HStack } from "@chakra-ui/react";
 import { DisconnectButton, TrackToggle, ChatToggle, StartMediaButton } from "@livekit/components-react";
 import { Track } from "livekit-client";
 import { ComponentProps } from "react";
@@ -17,6 +17,7 @@ export function ControlBar(props: Props) {
                 Chat
             </ChatToggle>
             <StartMediaButton label="Click to allow media playback" />
+            <Button variant="solid">Change Game</Button>
             <DisconnectButton>Leave Room</DisconnectButton>
         </HStack>
     );
