@@ -10,8 +10,8 @@ import "@livekit/components-styles";
 import { LiveKitRoomContextProvider } from "../model/livekit-room-context-provider";
 
 import { RoomMetadataContext } from "@features/manage-room";
-import { ChatPanel } from "./panel/chat/Chat";
-import { ChatDrawer } from "./panel/chat/ChatDrawer";
+import { ChatPanel } from "./panel/chat-drawer/Chat";
+import { ChatDrawer } from "./panel/chat-drawer/ChatDrawer";
 
 type Props = ComponentProps<typeof Box> & PropsWithChildren<{
     roomHeight: { base: string, md: string };
