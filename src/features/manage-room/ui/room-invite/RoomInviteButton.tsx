@@ -1,12 +1,10 @@
 import { useContext } from "react"
 import { RoomMetadataContext } from "../../model/room-metadata.context"
 import { Button } from "@chakra-ui/react"
+import { useRoomInfo } from "../../model/useRoomInfo"
 
 export const RoomInviteButton = () => {
-    const context = useContext(RoomMetadataContext)
+    const { name } = useRoomInfo();
 
-    if (!context) return null;
-    const { state } = context;
-
-    return (<Button variant="outline" colorPalette="red">room: {state.roomName}</Button>)
+    return (<Button variant="outline" colorPalette="red">room: {name}</Button>)
 }

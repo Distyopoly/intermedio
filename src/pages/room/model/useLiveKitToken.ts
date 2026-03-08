@@ -13,7 +13,7 @@ function tokenFetcher(roomName: string) {
 export function useLiveKitToken(roomName?: string) {
 
     const { data, error, isLoading } = useSWR(
-        roomName ? `/api/livekit/token?roomName=${roomName}` : null,
+        roomName ? roomName : null,
         tokenFetcher,
         {
             revalidateOnFocus: false,
