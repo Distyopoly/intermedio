@@ -1,8 +1,8 @@
-import { StepsCompletedContent, StepsContent, StepsIndicator, StepsItem, StepsList, StepsNextTrigger, StepsPrevTrigger, StepsRoot } from "@/packages/ui-components/steps";
+import { StepsCompletedContent, StepsContent, StepsIndicator, StepsItem, StepsList, StepsNextTrigger, StepsPrevTrigger, StepsRoot } from "@packages/ui-components/steps";
 import { Box, Button, ButtonGroup, HStack, ScrollArea, Spacer } from "@chakra-ui/react";
 import { LuCheck, LuPrinter } from "react-icons/lu";
 
-export default function UsingCards() {
+export function UsingCards() {
     return (
         <StepsRoot h="100%" size="sm" w="100%" alignItems="center"
             linear={false} display="flex" flexDirection="column"

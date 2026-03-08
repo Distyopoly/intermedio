@@ -1,7 +1,8 @@
 "use client";
 
 import { ClientOnly, Portal, Tabs, useBreakpointValue } from "@chakra-ui/react";
-import UsingCards from "./tab/using-cards";
+import { UsingCards } from "./tab/using-cards";
+import { QuickPeak } from "./tab/quick-peak";
 
 export function HowToTabs() {
     const orientation = useBreakpointValue({ base: "horizontal", md: "vertical" }) satisfies "vertical" | "horizontal" | undefined;
@@ -10,16 +11,20 @@ export function HowToTabs() {
         <ClientOnly>
             <Tabs.Root
                 orientation={orientation}
-                defaultValue="cards"
+                defaultValue="quick-peak"
                 h="full"
                 w="full"
             >
                 <Tabs.List>
+                    <Tabs.Trigger value="quick-peak">Quick Peak</Tabs.Trigger>
                     <Tabs.Trigger value="room">Creating Room</Tabs.Trigger>
                     <Tabs.Trigger value="cards">Using Cards</Tabs.Trigger>
                     <Tabs.Trigger value="boards">Using Boards</Tabs.Trigger>
                     <Tabs.Trigger value="rules">Rules</Tabs.Trigger>
                 </Tabs.List>
+                <Tabs.Content value="quick-peak">
+                    <QuickPeak />
+                </Tabs.Content>
                 <Tabs.Content value="room">
                     Placeholder
                 </Tabs.Content>
