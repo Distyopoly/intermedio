@@ -1,8 +1,12 @@
+
+"use client";
+
 import { PropsWithChildren } from "react";
 import { RoomLayoutInner } from "./room-layout";
 import { RoomMetadataContextProvider } from "@features/manage-room";
 import { getDefaultGameDerivation } from "@entities/game-derivation";
 import { RoomMetadataState } from "@features/manage-room";
+import { LayoutContextProvider } from "@livekit/components-react";
 
 type Props = PropsWithChildren<{
     roomName: string;
@@ -23,9 +27,11 @@ export function RoomLayout({ children, roomName }: Props) {
 
     return (
         <RoomMetadataContextProvider roomMetadata={roomMetadata} >
-            <RoomLayoutInner w="100%" roomHeight={roomHeight} >
-                {children}
-            </RoomLayoutInner>
+            <LayoutContextProvider>
+                <RoomLayoutInner w="100%" roomHeight={roomHeight} >
+                    {children}
+                </RoomLayoutInner>
+            </LayoutContextProvider>
         </RoomMetadataContextProvider>
     );
 }
