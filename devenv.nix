@@ -14,6 +14,7 @@ in
     pkgs.git
     pkgs.zrok
     pkgs.qrencode
+    pkgs.antigravity
    ];
 
   dotenv = {
@@ -48,9 +49,11 @@ in
     uri.exec = "echo '${ZROK_URL}'";
     curi.exec = "wl-copy '${ZROK_URL}'";
     o.exec = "chromium ${ZROK_URL}";
+    ag.exec = ''${pkgs.antigravity}/bin/antigravity "$@"'';
     lserver.exec = "NEXTAUTH_URL=${ZROK_URL} pnpm run dev --port ${config.env.ZROK_PORT}";
     server.exec = "NEXTAUTH_URL=${ZROK_URL} pnpm run dev --port ${config.env.ZROK_PORT}";
     tunnel.exec = "zrok share reserved ${config.env.ZROK_RESERVED_NAME} --headless";
     ter.exec = "alacritty -e ${pkgs.zellij}/bin/zellij --layout ${./nix/zellij/layout.kdl}";
+    m.exec = "ter & ag";
   };
 }
