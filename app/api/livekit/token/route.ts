@@ -12,25 +12,23 @@ export async function GET(request: NextRequest) {
         return Response.json({ error: "Unauthorized", debug: session }, { status: 401 });
     }
 
-    // is the RoomName parameter present?
-    const { searchParams } = new URL(request.url);
-    const roomName = searchParams.get("roomName");
-    if (!roomName) {
-        return Response.json({ error: "Missing roomName parameter" }, { status: 400 });
-    }
-
     // getUserMetadata
     // ...
     const participantName = session.user.name;
 
+    // is the RoomId parameter present?
+    const { searchParams } = new URL(request.url);
+    let roomId = searchParams.get("roomId");
+    if (!roomId) {
+        roomId = await rtcGateway.createRoom(JSON.stringify({ gm: participantName }));
+    }
+    
     // search for room
-    // const roomExists = await rtcGateway.existsRoom(roomName);
-    const metadataDto = await rtcGateway.getRoomMetadataDto(roomName);
+    const metadataDto = await rtcGateway.getRoomMetadataDto(roomId);
     
     if (!metadataDto) {
-        // console.log(`Room with ID ${roomName} not found`);
-        // return Response.json({ error: "Bad Request"}, { status: 400 });
-        await rtcGateway.createRoom(roomName, JSON.stringify({ gm: participantName }));
+        console.log(`Room with ID ${roomId} not found`);
+        return Response.json({ error: "Bad Request"}, { status: 400 });
     }
 
     // check if user is GM
@@ -45,7 +43,7 @@ export async function GET(request: NextRequest) {
     }
 
     // create token
-    const token = await rtcGateway.generateRoomAccessToken(roomName, participantName, isGM);
+    const token = await rtcGateway.generateRoomAccessToken(roomId, participantName, isGM);
 
     // return token
     return Response.json({ token });
