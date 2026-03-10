@@ -22,7 +22,7 @@ export function RoomCreatorPage() {
                 >
                     <RoomDraftProvider>
                         <SettingsDialog variant="ghost" size="2xl" />
-                        <CreateRoomButton roomPrefix="/platform/room" />
+                        <CreateRoomButton />
                         <Playbook variant="surface" />
                     </RoomDraftProvider>
                 </VStack>

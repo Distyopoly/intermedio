@@ -1,14 +1,14 @@
 import { Button, Flex, HStack, Input, InputGroup, Spacer, Stack, Text, Textarea, VStack } from "@chakra-ui/react";
 import { useRoomInfo } from "../../../model/useRoomInfo";
-import { useInviteUrl } from "../genInviteUrl";
+import { useRoomUrl } from "../../../lib/genRoomUrl";
 import { ClipboardButton, ClipboardInput, ClipboardRoot } from "@packages/ui-components/chakra/clipboard";
 import { QrCode, QrCodeDownloadTrigger } from "@packages/ui-components/chakra/qr-code";
-import { genInviteText } from "../model/genInviteText";
+import { genInviteText } from "./genInviteText";
 
 export const RoomInviteModalContent = () => {
 
     const { name } = useRoomInfo()
-    const inviteUrl = useInviteUrl(name)
+    const inviteUrl = useRoomUrl(name)
     const inviteMessage = genInviteText({inviteUrl}) 
 
     return (

@@ -1,1 +1,1 @@
-export { RoomCreatorLayout as default } from "@pages/room-creator";
+export { LoginRequired as default } from "@features/auth";

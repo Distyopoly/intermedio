@@ -7,6 +7,7 @@ import { RoomMetadataContextProvider } from "@features/manage-room";
 import { getDefaultGameDerivation } from "@entities/game-derivation";
 import { RoomMetadataState } from "@features/manage-room";
 import { LayoutContextProvider } from "@livekit/components-react";
+import { LoginRequired } from "@features/auth";
 
 type Props = PropsWithChildren<{
     roomName: string;
@@ -26,12 +27,14 @@ export function RoomLayout({ children, roomName }: Props) {
     } satisfies RoomMetadataState;
 
     return (
-        <RoomMetadataContextProvider roomMetadata={roomMetadata} >
-            <LayoutContextProvider>
-                <RoomLayoutInner w="100%" roomHeight={roomHeight} >
-                    {children}
-                </RoomLayoutInner>
-            </LayoutContextProvider>
-        </RoomMetadataContextProvider>
+        <LoginRequired>
+            <RoomMetadataContextProvider roomMetadata={roomMetadata} >
+                <LayoutContextProvider>
+                    <RoomLayoutInner w="100%" roomHeight={roomHeight} >
+                        {children}
+                    </RoomLayoutInner>
+                </LayoutContextProvider>
+            </RoomMetadataContextProvider>
+        </LoginRequired>
     );
 }
