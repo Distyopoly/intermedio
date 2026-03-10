@@ -2,6 +2,7 @@ import { AccessToken, RoomServiceClient } from "livekit-server-sdk";
 import { RtcGateway } from "../RtcGateway";
 import { createRoom } from "./createRoom";
 import { getRoom } from "./getRoom";
+import { nanoid } from "nanoid";
 
 
 // loadlivekit credentials
@@ -21,7 +22,8 @@ export class LivekitRtcGateway implements RtcGateway {
         this.roomService = new RoomServiceClient(livekitUrl, apiKey, apiSecret);
     }
 
-    async createRoom(roomId: string, metadata: string): Promise<string> {
+    async createRoom(metadata: string): Promise<string> {
+        const roomId = nanoid();
         return this.roomService.createRoom({
             name: roomId,
             emptyTimeout: 2 * 60, // 2 minutes
@@ -32,7 +34,6 @@ export class LivekitRtcGateway implements RtcGateway {
     }
 
     async existsRoom(roomId: string): Promise<boolean | undefined> {
-
         return this.roomService.listRooms([roomId]).then(
             (rooms) => rooms.length === 1 ? true : false
         );

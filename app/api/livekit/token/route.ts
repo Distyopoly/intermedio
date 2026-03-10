@@ -1,8 +1,6 @@
-import { AccessToken } from "livekit-server-sdk";
 import { NextRequest } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@features/auth/config/auth-options";
-import { nanoid } from "nanoid";
 import { rtcGateway } from "@shared/api/rtc-gateway";
 
 export async function GET(request: NextRequest) {
