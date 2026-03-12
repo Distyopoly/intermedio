@@ -2,10 +2,8 @@
 
 import { useContext } from "react";
 import { RoomMetadataContext } from "@features/manage-room";
-import { Heading, Text, VStack, Box } from "@chakra-ui/react";
-import { BgImage } from "@packages/ui-patterns/background";
-import NextImage from "next/image";
-
+import { Heading, Text, VStack, HStack } from "@chakra-ui/react";
+import { FaPerson } from "react-icons/fa6";
 
 export default function GameOverview() {
     const context = useContext(RoomMetadataContext);
@@ -25,6 +23,10 @@ export default function GameOverview() {
             <Heading fontSize={{ base: "md", md: "2xl" }}>{gameDerivation.name}</Heading>
             <VStack layerStyle="fill.surface" p={5}>
                 <Text fontSize={{ base: "md", md: "2xl" }}>{gameDerivation.description}</Text>
+                <HStack gap={2}>
+                    <FaPerson size={24} />
+                    <Text fontSize={{ base: "md", md: "2xl" }}> {gameDerivation.playerCount.min} - {gameDerivation.playerCount.max}</Text>
+                </HStack>
             </VStack>
 
             {/* <Box zIndex={-1} position="relative" w="full" h="96vh" overflow="hidden" >
