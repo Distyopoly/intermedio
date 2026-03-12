@@ -4,7 +4,6 @@ import { ComponentProps, useContext } from "react";
 import { RoomMetadataContext } from "@features/manage-room";
 import { gameDerivations } from "@/games/game-list";
 import { RadioCardRoot, RadioCardItem } from "@/packages/ui-components/radio-card";
-import { BgImage } from "@packages/ui-patterns/background";
 
 export function GameSwitcher({ ...props }: ComponentProps<typeof RadioCardRoot>) {
     const roomMetadataContext = useContext(RoomMetadataContext);

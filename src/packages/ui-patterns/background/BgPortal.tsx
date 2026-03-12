@@ -12,12 +12,13 @@ export function BgPortal({
     src, themeInvert = true,
     position = "fixed",
     w="full",
-    h="full",
+    h="100vh",
+    // h="full",
     ...props }: Props) {
     return (
         <>
             <Portal key={src}>
-                <Box position={position} w={w} h={h}>
+                <Box position={position} top="0" w={w} h={h} zIndex={-1}>
                     {src && (
                         <BgImage src={src} themeInvert={themeInvert} {...props}/>
                     )}

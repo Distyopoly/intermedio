@@ -24,8 +24,8 @@ export function RootLayout({
           <Box h="calc(100vh - 16vh)" as="main" position="relative">
             {children}
           </Box>
+            <MainAreaBackground src="/main-page-background.jpg" />
           <Footer display={{ base: "none", md: "flex" }} h="8vh" />
-          {/* <MainAreaBackground src="/main-page-background.jpg" h="calc(100vh - 16vh)" /> */}
         </Providers>
       </body>
     </html>
