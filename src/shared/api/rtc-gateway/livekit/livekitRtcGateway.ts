@@ -1,10 +1,8 @@
 import { AccessToken, RoomServiceClient } from "livekit-server-sdk";
 import { RtcGateway } from "../RtcGateway";
-import { createRoom } from "./createRoom";
-import { getRoom } from "./getRoom";
 import { nanoid } from "nanoid";
 
-
+``
 // loadlivekit credentials
 const apiKey = process.env.LIVEKIT_API_KEY;
 const apiSecret = process.env.LIVEKIT_API_SECRET;
@@ -52,5 +50,9 @@ export class LivekitRtcGateway implements RtcGateway {
         });
         at.addGrant({ roomJoin: true, room: roomId, roomAdmin: isGM });
         return at.toJwt();
+    }
+
+    async updateRoom(roomId: string, metadata: string): Promise<void> {
+        this.roomService.updateRoomMetadata(roomId, metadata);
     }
 };

@@ -10,19 +10,21 @@ import { useLiveKitToken } from './useLiveKitToken';
 import { useRouter } from 'next/navigation';
 
 type Props = PropsWithChildren<{
-  roomName: string;
+  roomId: string;
   errorComponent: React.ReactNode;
   loadingComponent: React.ReactNode;
 }>;
 
-export function LiveKitRoomContextProvider({ children, roomName, errorComponent, loadingComponent }: Props) {
+export function LiveKitRoomContextProvider({ children, roomId, errorComponent, loadingComponent }: Props) {
   const [room] = useState(() => new Room({}));
   const [userChoices, setUserChoices] = useState<LocalUserChoices | undefined>(undefined);
   const router = useRouter();
 
-  const { token, error, isLoading } = useLiveKitToken(roomName);
+  const { token, error, isLoading } = useLiveKitToken(roomId);
 
   const livekit_url = process.env.NEXT_PUBLIC_LIVEKIT_URL;
+
+  console.log(roomId, "<-------=-------------");
 
   // You can manage room connection lifecycle here
   useEffect(() => {

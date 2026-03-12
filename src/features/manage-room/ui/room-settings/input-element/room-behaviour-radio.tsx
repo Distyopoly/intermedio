@@ -4,19 +4,19 @@ import { Icon } from "@chakra-ui/react";
 import { TbCrosshair } from "react-icons/tb";
 import { PiVideoConferenceLight } from "react-icons/pi";
 import { ComponentProps } from "react";
-import { RoomDraftContext } from "../../model/room-draft.context";
-import { RoomBehaviour } from "../../model/RoomBehaviour";
+import { RoomSettingsContext } from "../../../model/room-settings.context";
+import { RoomBehaviour } from "@entities/room/model/RoomBehaviour";
 import { useContext } from "react";
 
 type Props = ComponentProps<typeof RadioCardRoot>;
 
 export default function RoomBehaviourRadio({ ...props }: Props) {
-    const { roomDraft, setRoomDraft } = useContext(RoomDraftContext);
+    const { roomSettings, setRoomSettings } = useContext(RoomSettingsContext);
 
     return (
         <RadioCardRoot
-            value={roomDraft.roomBehaviour}
-            onValueChange={(value) => setRoomDraft({ type: "setRoomBehaviour", payload: value.value as RoomBehaviour })}
+            value={roomSettings.room.roomBehaviour}
+            onValueChange={(value) => setRoomSettings({ type: "setRoomBehaviour", payload: value.value as RoomBehaviour })}
             orientation="vertical"
             align="center"
             gap={5}

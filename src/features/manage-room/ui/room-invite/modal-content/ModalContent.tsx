@@ -2,7 +2,7 @@ import { Button, Flex, HStack, Input, InputGroup, Spacer, Stack, Text, Textarea,
 import { useRoomInfo } from "../../../model/useRoomInfo";
 import { useRoomUrl } from "../../../lib/genRoomUrl";
 import { ClipboardButton, ClipboardInput, ClipboardRoot } from "@packages/ui-components/chakra/clipboard";
-import { QrCode, QrCodeDownloadTrigger } from "@packages/ui-components/chakra/qr-code";
+import { QrCode } from "@packages/ui-components/chakra/qr-code";
 import { genInviteText } from "./genInviteText";
 
 export const RoomInviteModalContent = () => {

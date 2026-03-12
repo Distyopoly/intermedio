@@ -1,4 +1,4 @@
-export { AuthenticatedGuardClient } from "./ui/auth-guard-client";
+export { AuthenticatedGuardRedirect } from "./ui/auth-guard-client";
 export { AuthenticatedGuardServer } from "./ui/auth-guard-server";
 export { LoginRequired } from "./ui/login-required";
 

@@ -1,10 +1,10 @@
 import { useMemo } from "react";
 
-export function genRoomUrl(roomName: string) {
-    return `${window.location.origin}/room/${roomName}`
+export function genRoomUrl(roomId: string) {
+    return `${window.location.origin}/room/${roomId}`
 }
 
-export function useRoomUrl(roomName: string) {
+export function useRoomUrl(roomId: string) {
     // encodeURIComponent handles spaces or special characters in room names
-    return useMemo(() => genRoomUrl(roomName), [roomName]);
+    return useMemo(() => genRoomUrl(roomId), [roomId]);
 }

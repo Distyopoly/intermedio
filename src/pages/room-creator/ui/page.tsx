@@ -1,9 +1,10 @@
 import { AbsoluteCenter, Heading, VStack, Highlight } from "@chakra-ui/react";
 import { Playbook } from "@features/playbook";
-import { CreateRoomButton, RoomDraftProvider, SettingsDialog } from "@features/manage-room";
+import { CreateRoomButton, RoomSettingsProvider, SettingsDialog } from "@features/manage-room";
 
 export function RoomCreatorPage() {
     return (
+
         <AbsoluteCenter>
             <VStack gap="5em">
                 <Heading userSelect="none" fontSize="6xl" letterSpacing="wide" fontWeight="bold" textAlign="center" lineHeight="shorter" textWrap="balance">
@@ -20,11 +21,11 @@ export function RoomCreatorPage() {
                     w="fit-content"
                     padding={10}
                 >
-                    <RoomDraftProvider>
+                    <RoomSettingsProvider>
                         <SettingsDialog variant="ghost" size="2xl" />
                         <CreateRoomButton />
                         <Playbook variant="surface" />
-                    </RoomDraftProvider>
+                    </RoomSettingsProvider>
                 </VStack>
             </VStack>
         </AbsoluteCenter>

@@ -2,18 +2,19 @@
 
 import useSWR from 'swr';
 import ky from "ky";
+import { RoomId } from "@entities/room";
 
 
-function tokenFetcher(roomName: string) {
-    const url = `/api/livekit/token?roomName=${roomName}`;
+function tokenFetcher(roomId: RoomId) {
+    const url = `/api/rooms/${roomId}/token`;
 
-    return ky.get(url, {}).json<{ token: string }>();
+    return ky.get(url, {}).json<{ room_access_token: string }>();
 }
 
-export function useLiveKitToken(roomName?: string) {
+export function useLiveKitToken(roomId: RoomId) {
 
     const { data, error, isLoading } = useSWR(
-        roomName ? roomName : null,
+        roomId,
         tokenFetcher,
         {
             revalidateOnFocus: false,
@@ -23,8 +24,10 @@ export function useLiveKitToken(roomName?: string) {
         }
     );
 
+    console.log(data, "<--------------------");
+
     return {
-        token: data?.token,
+        token: data?.room_access_token,
         error,
         isLoading,
     };

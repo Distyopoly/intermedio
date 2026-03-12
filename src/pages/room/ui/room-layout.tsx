@@ -10,23 +10,24 @@ import "@livekit/components-styles";
 import { LiveKitRoomContextProvider } from "../model/livekit-room-context-provider";
 
 import { RoomMetadataContext } from "@features/manage-room";
-import { ChatPanel } from "./panel/chat-drawer/Chat";
 import { ChatDrawer } from "./panel/chat-drawer/ChatDrawer";
 
 type Props = ComponentProps<typeof Box> & PropsWithChildren<{
     roomHeight: { base: string, md: string };
+    roomId: string;
 }>
 
 
-export const RoomLayoutInner = ({ children, roomHeight = { base: "100%", md: "100%" }, ...props }: Props) => {
+export const RoomLayoutInner = ({ children, roomHeight = { base: "100%", md: "100%" }, roomId, ...props }: Props) => {
 
-    const context = useContext(RoomMetadataContext);
-    if (!context) {
-        return null;
-    }
+    // const context = useContext(RoomMetadataContext);
+    // if (!context) {
+    //     return null;
+    // }
 
-    const { state } = context;
-    const layout = state.roomBehaviour;
+    // const { state } = context;
+    const layout = "video";
+    // const layout = state.roomBehaviour;
 
     const orientation = useBreakpointValue({ base: "vertical", md: "horizontal" }) as "vertical" | "horizontal";
     const h = useBreakpointValue(roomHeight);
@@ -40,7 +41,7 @@ export const RoomLayoutInner = ({ children, roomHeight = { base: "100%", md: "10
 
             <ClientOnly fallback={<Spinner size="xl" />}>
                 <Box justifyContent="stretch" h={h} {...props}>
-                    <LiveKitRoomContextProvider roomName={state.roomName}
+                    <LiveKitRoomContextProvider roomId={roomId}
                         loadingComponent={<Spinner size="xl" />}
                         errorComponent={<Text>Room Error</Text>}
                     >

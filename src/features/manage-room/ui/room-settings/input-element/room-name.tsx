@@ -4,28 +4,28 @@ import { HiOutlineRefresh } from "react-icons/hi";
 import { ComponentProps } from "react";
 
 import { Field } from "@packages/ui-components/field";
-import { RoomDraftContext } from "../../model/room-draft.context";
+import { RoomSettingsContext } from "../../../model/room-settings.context";
 import { useContext } from "react";
 
 type Props = ComponentProps<typeof HStack>;
 
 export default function RoomName(props: Props) {
-    const { roomDraft, setRoomDraft } = useContext(RoomDraftContext);
+    const { roomSettings, setRoomSettings } = useContext(RoomSettingsContext);
 
     return (
         <Field
             label="Room Name"
         >
             <HStack gap={3} justifyContent="center" w="fit-content" {...props}>
-                <IconButton variant="ghost" size="xs" onClick={() => setRoomDraft({ type: "randomName" })}>
+                <IconButton variant="ghost" size="xs" onClick={() => setRoomSettings({ type: "randomName" })}>
                     <HiOutlineRefresh />
                 </IconButton>
 
                 <Editable.Root
-                    value={roomDraft.roomName}
+                    value={roomSettings.room.name}
                     placeholder="Room Name"
-                    onValueChange={(details) => setRoomDraft({ type: "setRoomName", payload: details.value })}
-                    onValueRevert={(details) => setRoomDraft({ type: "setRoomName", payload: details.value })}
+                    onValueChange={(details) => setRoomSettings({ type: "setRoomName", payload: details.value })}
+                    onValueRevert={(details) => setRoomSettings({ type: "setRoomName", payload: details.value })}
                 >
                     <Editable.Preview fontSize="lg" fontWeight="bold" />
                     <Editable.Input fontSize="lg" fontWeight="bold" />

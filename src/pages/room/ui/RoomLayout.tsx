@@ -1,4 +1,3 @@
-
 "use client";
 
 import { PropsWithChildren } from "react";
@@ -7,13 +6,13 @@ import { RoomMetadataContextProvider } from "@features/manage-room";
 import { getDefaultGameDerivation } from "@entities/game-derivation";
 import { RoomMetadataState } from "@features/manage-room";
 import { LayoutContextProvider } from "@livekit/components-react";
-import { LoginRequired } from "@features/auth";
+import { AuthenticatedGuardRedirect } from "@features/auth";
 
 type Props = PropsWithChildren<{
-    roomName: string;
+    roomId: string;
 }>;
 
-export function RoomLayout({ children, roomName }: Props) {
+export function RoomLayout({ children, roomId }: Props) {
 
     const roomHeight = {
         base: "calc(100vh - 8vh)",
@@ -21,20 +20,20 @@ export function RoomLayout({ children, roomName }: Props) {
     };
 
     const roomMetadata = {
-        roomName,
+        id: roomId,
         roomBehaviour: "video",
         gameDerivation: getDefaultGameDerivation()
     } satisfies RoomMetadataState;
 
     return (
-        <LoginRequired>
-            <RoomMetadataContextProvider roomMetadata={roomMetadata} >
-                <LayoutContextProvider>
-                    <RoomLayoutInner w="100%" roomHeight={roomHeight} >
-                        {children}
-                    </RoomLayoutInner>
-                </LayoutContextProvider>
-            </RoomMetadataContextProvider>
-        </LoginRequired>
+        <AuthenticatedGuardRedirect>
+        <RoomMetadataContextProvider roomMetadata={roomMetadata} >
+            <LayoutContextProvider>
+                <RoomLayoutInner w="100%" roomHeight={roomHeight} roomId={roomId} >
+                    {children}
+                </RoomLayoutInner>
+            </LayoutContextProvider>
+        </RoomMetadataContextProvider>
+        </AuthenticatedGuardRedirect>
     );
 }

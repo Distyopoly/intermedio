@@ -2,11 +2,10 @@ import { gameDerivations } from "@/games/game-list";
 import { GameDerivation } from "@entities/game-derivation";
 import { RoomBehaviour } from "@features/manage-room";
 import { getDefaultGameDerivation } from "@entities/game-derivation";
+import { Room } from "@entities/room";
 
 
-export type RoomMetadataState = {
-    roomName: string;
-    roomBehaviour: RoomBehaviour;
+export type RoomMetadataState = Partial<Room> & {
     gameDerivation: GameDerivation;
 };
 
