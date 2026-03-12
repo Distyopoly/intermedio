@@ -46,7 +46,7 @@ export const RoomLayoutInner = ({ children, roomHeight = { base: "100%", md: "10
                         errorComponent={<Text>Room Error</Text>}
                     >
                         <ControlPanel h={controlbarHeight} w="100vw" justifyContent="center" alignItems="center"
-                            gap={4} wrap="wrap"
+                            gap={4} wrap="wrap" borderBottom="2px solid" shadow="base"
                         />
                         <Splitter flex="1" orientation={orientation} maxH={`calc(${h} - ${controlbarHeight})`}
                                 panels={[

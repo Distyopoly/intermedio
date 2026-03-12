@@ -5,7 +5,9 @@ import { GameSwitcher } from "./game-switcher/GameArea";
 export function GameArea() {
 
     return (
-        <VStack layerStyle="fill.surface" h="100%" justifyContent="center" alignItems="center" gap={10}
+        <VStack
+            h="100%" justifyContent="center" alignItems="center" gap={10}
+            // layerStyle="fill.surface"
             w="full">
             <Text fontSize="sm">Choose A Game</Text>
             <GameOverview />
@@ -14,4 +16,3 @@ export function GameArea() {
         </VStack>
     );
 }
- 

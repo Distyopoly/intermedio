@@ -3,7 +3,7 @@ import { Providers } from "@/app/providers";
 import { Navbar } from "@widgets/navigation";
 import { Footer } from "@shared/ui/footer";
 import { Box } from "@chakra-ui/react";
-import { MainAreaBackground } from "@/packages/ui-patterns/background";
+import { MainAreaBackground } from "@packages/ui-patterns/background/MainAreaBackground";
 import { PropsWithChildren } from "react";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export function RootLayout({
             {children}
           </Box>
           <Footer display={{ base: "none", md: "flex" }} h="8vh" />
-          <MainAreaBackground key="main-page.jpg" src="/main-page-background.jpg" invert={false} zIndex={-2} />
+          {/* <MainAreaBackground src="/main-page-background.jpg" h="calc(100vh - 16vh)" /> */}
         </Providers>
       </body>
     </html>

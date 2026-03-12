@@ -4,7 +4,7 @@ import { ComponentProps, useContext } from "react";
 import { RoomMetadataContext } from "@features/manage-room";
 import { gameDerivations } from "@/games/game-list";
 import { RadioCardRoot, RadioCardItem } from "@/packages/ui-components/radio-card";
-import { MainAreaBackground } from "@packages/ui-patterns/background";
+import { BgImage } from "@packages/ui-patterns/background";
 
 export function GameSwitcher({ ...props }: ComponentProps<typeof RadioCardRoot>) {
     const roomMetadataContext = useContext(RoomMetadataContext);
@@ -17,6 +17,10 @@ export function GameSwitcher({ ...props }: ComponentProps<typeof RadioCardRoot>)
 
     return (
         <RadioCardRoot
+            variant="solid"
+            layerStyle="fill.surface"
+            p={5}
+
             value={state.gameDerivation.slug}
             onValueChange={(value) => dispatch({ type: "setGameDerivation", payload: value.value })}
             {...props}
@@ -33,7 +37,6 @@ export function GameSwitcher({ ...props }: ComponentProps<typeof RadioCardRoot>)
                     )}
                 </For>
             </HStack>
-            <MainAreaBackground key={state.gameDerivation.coverArtSrc} src={state.gameDerivation.coverArtSrc} />
         </RadioCardRoot>
     );
 }
