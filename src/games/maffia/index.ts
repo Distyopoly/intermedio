@@ -4,5 +4,9 @@ export default deriveGameRecipe({
     slug: "maffia",
     name: "Maffia",
     description: "Maffia is a game of strategy and chance.",
-    coverArt: "/maffia-background.png"
+    coverArt: "/maffia-background.png",
+    playerCount: {
+        min: 5,
+        max: 10
+    }
 })

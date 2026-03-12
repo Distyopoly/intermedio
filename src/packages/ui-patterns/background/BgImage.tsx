@@ -12,15 +12,17 @@ type Props = ComponentProps<typeof Image> & {
     zIndex?: number;
 }
 
-export function BgImage({ src, themeInvert = true, zIndex = -1, ...props }: Props) {
+export function BgImage({ src, themeInvert = true, zIndex = -2, ...props }: Props) {
     const { colorMode } = useColorMode();
 
     const filter = (themeInvert && colorMode === "dark") ? "invert(90%)" : undefined;
 
     return (
         <Box
-            // h="92vh"
-            bottom="0"
+            pos="relative"
+            h="100vh"
+            top="0"
+            right="0"
             w="full"
             overflow="hidden"
             zIndex={zIndex}

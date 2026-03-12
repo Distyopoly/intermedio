@@ -7,6 +7,10 @@ export type GameDerivation = {
     name: string;
     description: string;
     coverArtSrc: string;
+    playerCount: {
+        min: number;
+        max: number;
+    }
 }
 
 

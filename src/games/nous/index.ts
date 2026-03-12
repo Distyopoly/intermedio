@@ -4,5 +4,9 @@ export default deriveGameRecipe({
     slug: "nous",
     name: "Nous",
     description: "Nous is a game of strategy and chance.",
-    coverArt: "/nous-background.png"
+    coverArt: "/nous-background.png",
+    playerCount: {
+        min: 2,
+        max: 10
+    }
 })

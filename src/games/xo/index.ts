@@ -4,5 +4,9 @@ export default deriveGameRecipe({
     slug: "xo",
     name: "XO",
     description: "XO is a game of strategy and chance.",
-    coverArt: "/xo-background.png"
+    coverArt: "/xo-background.png",
+    playerCount: {
+        min: 2,
+        max: 2
+    }
 })

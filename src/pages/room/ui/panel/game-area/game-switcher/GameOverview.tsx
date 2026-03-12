@@ -2,8 +2,10 @@
 
 import { useContext } from "react";
 import { RoomMetadataContext } from "@features/manage-room";
-import { Heading, Text, VStack } from "@chakra-ui/react";
+import { Heading, Text, VStack, Box } from "@chakra-ui/react";
 import { BgImage } from "@packages/ui-patterns/background";
+import NextImage from "next/image";
+
 
 export default function GameOverview() {
     const context = useContext(RoomMetadataContext);
@@ -25,7 +27,9 @@ export default function GameOverview() {
                 <Text fontSize={{ base: "md", md: "2xl" }}>{gameDerivation.description}</Text>
             </VStack>
 
-            <BgImage key={gameDerivation.coverArtSrc} src={gameDerivation.coverArtSrc} />
+            {/* <Box zIndex={-1} position="relative" w="full" h="96vh" overflow="hidden" >
+                <NextImage key={gameDerivation.coverArtSrc} src={gameDerivation.coverArtSrc} alt="Game Art Cover" fill />
+            </Box> */}
         </VStack>
     );
 }

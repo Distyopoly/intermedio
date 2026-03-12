@@ -6,6 +6,7 @@ export function deriveGameRecipe(recipe: GameRecipe): GameDerivation {
         slug: recipe.slug,
         name: recipe.name ?? recipe.slug,
         description: recipe.description ?? "...",
-        coverArtSrc: recipe.coverArt ?? ""
+        coverArtSrc: recipe.coverArt ?? "",
+        playerCount: recipe.playerCount ?? { min: 2, max: 4 }
     }
 }

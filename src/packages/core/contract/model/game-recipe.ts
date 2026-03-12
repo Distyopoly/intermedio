@@ -5,4 +5,8 @@ export type GameRecipe = {
     name?: string;
     description?: string;
     coverArt?: string;
+    playerCount?: {
+        min: number;
+        max: number;
+    }
 }

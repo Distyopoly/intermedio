@@ -9,9 +9,9 @@ type Props = ComponentProps<typeof BgPortal> & {
     themeInvert?: boolean;
 }
 
-export function MainAreaBackground({ src, themeInvert = false, zIndex = -20, ...props }: Props) {
+export function MainAreaBackground({ src, themeInvert = false, zIndex = -20, w="full", ...props }: Props) {
 
     return (
-        <BgPortal src={src} themeInvert={themeInvert} zIndex={zIndex} {...props}/>
+        <BgPortal src={src} themeInvert={themeInvert} w={w} zIndex={zIndex} {...props}/>
     );
 }
